@@ -60,7 +60,7 @@ namespace Wpf_Steuerprogramm
             string WhitworthDurchmesser = Konsolenprogramm.AusgabeWitworthdurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
             string WhitworthFlankendurchmesser = Konsolenprogramm.AusgabeWitworthflankendurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
 
-            // Ausgabe im Label, Testkommentar 2
+            // Ausgabe im Label, Testkommentar von Richard, der Github nicht mag
             lbl_Ausgabe.Content = "Kernlochdurchmesser: " + DurchmesserKernloch + "     Schlüsselweite: " + Schlüsselweite + "    Durchmesser: " + Bolt.Durchmesser + "    Kopf: " + Bolt.Kopf + "    Kopfhöhe: " + Kopfhöhe;
         }
 
