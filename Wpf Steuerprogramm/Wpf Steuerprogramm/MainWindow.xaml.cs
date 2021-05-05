@@ -50,57 +50,66 @@ namespace Wpf_Steuerprogramm
             {
                 Bolt.Steigung = Convert.ToDouble(txtBox_Steigung.Text);
             }
+
             if (Bolt.Gewindeart == 3)
             {
                 (Bolt.Gangzahl, Bolt.Steigung) = Konsolenprogramm.BerechnungWitworthSteigung(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
                 txtBox_Steigung.Text = Convert.ToString(Bolt.Steigung);
                 Bolt.Steigung = Convert.ToDouble(txtBox_Steigung.Text);
-
+                Bolt.Kopf = 0;
             }
-
-            // Ausgabeparameter
-            //double DurchmesserKernloch = Konsolenprogramm.BerechnungKernlochbohrung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Gewindeart, Bolt.WhitworthTabelle());
-            //double Schlüsselweite = Konsolenprogramm.AusgabeSchlüsselweite(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
-            //double Kopfdurchmesser = Konsolenprogramm.AusgabeKopfdurchmesser(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
-            //double Kopfhöhe = Konsolenprogramm.AusgabeKopfhöhe(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
-            //double Durchgangsbohrung = Konsolenprogramm.BerechnungDurchgangsbohrung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
-            //double Senkdurchmesser = Konsolenprogramm.BerechnungSenkdurchmesser(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
-            //double DurchmesserKegelsenkung = Konsolenprogramm.BerechnungDurchmesserKegelsenkung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
-            //double MaxBelastung = Konsolenprogramm.BerechnungMaxBelastung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Streckgrenze, Bolt.Gewindeart, Bolt.WhitworthTabelle());
-            //string WhitworthDurchmesser = Konsolenprogramm.AusgabeWitworthdurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
-            //string WhitworthFlankendurchmesser = Konsolenprogramm.AusgabeWitworthflankendurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
-
             Bolt.Flankendurchmesser = Konsolenprogramm.Flankendurchmesser(Bolt.Gewindeart, Bolt.Durchmesser, Bolt.Steigung);
             Bolt.Schlüsselweite = Konsolenprogramm.AusgabeSchlüsselweite(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
             Bolt.Kopfhöhe = Konsolenprogramm.AusgabeKopfhöhe(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
             Bolt.Kopfdurchmesser = Konsolenprogramm.AusgabeKopfdurchmesser(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
-            Bolt.Gewindevolumen = Konsolenprogramm.Gewindevolumen(Bolt.Gewindeart, Bolt.Gewindelänge, (double)Bolt.Flankendurchmesser);
-            Bolt.Gewindemasse = Konsolenprogramm.Gewindemasse(dichte, (double)Bolt.Gewindevolumen);
+            Bolt.Gewindevolumen = Konsolenprogramm.Gewindevolumen(Bolt.Gewindeart, Bolt.Gewindelänge, Bolt.Flankendurchmesser);
+            Bolt.Gewindemasse = Konsolenprogramm.Gewindemasse(dichte, Bolt.Gewindevolumen);
             Bolt.Schaftvolumen = Konsolenprogramm.Schaftvolumen(Bolt.Durchmesser, Bolt.Schaftlänge);
-            Bolt.Schaftmasse = Konsolenprogramm.Schaftmasse(dichte, (double)Bolt.Schaftvolumen);
+            Bolt.Schaftmasse = Konsolenprogramm.Schaftmasse(dichte, Bolt.Schaftvolumen);
             Bolt.Kopfvolumen = Konsolenprogramm.Kopfvolumen(Bolt.Kopf, Bolt.Schlüsselweite, Bolt.Kopfhöhe, Bolt.Kopfdurchmesser, Bolt.Durchmesser);
-            Bolt.Kopfmasse = Konsolenprogramm.Kopfmasse(dichte, (double)Bolt.Kopfvolumen);
-            Bolt.Gesamtmasse = Konsolenprogramm.Gesamtmasse((double)Bolt.Gewindemasse, (double)Bolt.Schaftmasse, (double)Bolt.Kopfmasse);
-            Bolt.Kernlochdurchmesser = Konsolenprogramm.BerechnungKernlochbohrung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Gewindeart, Bolt.WhitworthTabelle());
-
+            Bolt.Kopfmasse = Konsolenprogramm.Kopfmasse(dichte, Bolt.Kopfvolumen);
+            Bolt.Gesamtmasse = Konsolenprogramm.Gesamtmasse((double)Bolt.Gewindemasse, Bolt.Schaftmasse, Bolt.Kopfmasse);
+            Bolt.Kernlochdurchmesser = Konsolenprogramm.BerechnungKernlochbohrung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Gewindeart, Bolt.WhitworthTabelle()); ;
             Bolt.Durchgangsbohrung = Konsolenprogramm.BerechnungDurchgangsbohrung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
             Bolt.Senkdurchmesser = Konsolenprogramm.BerechnungSenkdurchmesser(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
             Bolt.DurchmesserKegelsenkung = Konsolenprogramm.BerechnungDurchmesserKegelsenkung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
             Bolt.MaxBelastung = Konsolenprogramm.BerechnungMaxBelastung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Streckgrenze, Bolt.Gewindeart, Bolt.WhitworthTabelle());
             Bolt.WhitworthDurchmesser = Konsolenprogramm.AusgabeWitworthdurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
             Bolt.WhitworthFlankendurchmesser = Konsolenprogramm.AusgabeWitworthflankendurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
-            Bolt.SchraubenbezeichnungMX = Konsolenprogramm.SchraubenbezeichnungMX(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser, Bolt.Gesamtlänge, (string)Bolt.Festigkeitsklasse);
-            Bolt.SchraubenbezeichnungMF = Konsolenprogramm.SchraubenbezeichnungMF(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser, Bolt.Steigung, Bolt.Gesamtlänge, (string)Bolt.Festigkeitsklasse);
-            Bolt.Gesamtpreis = Konsolenprogramm.Preisberechnung(Bolt.Gewindeart, Bolt.Kopf, (double)Bolt.Gewindemasse, (double)Bolt.Schaftmasse, (double)Bolt.Kopfmasse);
+            Bolt.SchraubenbezeichnungMX = Konsolenprogramm.SchraubenbezeichnungMX(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse);
+            Bolt.SchraubenbezeichnungMF = Konsolenprogramm.SchraubenbezeichnungMF(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser, Bolt.Steigung, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse);
+            Bolt.Gesamtpreis = Konsolenprogramm.Preisberechnung(Bolt.Gewindeart, Bolt.Kopf, (double)Bolt.Gewindemasse, Bolt.Schaftmasse, Bolt.Kopfmasse);
+            Bolt.Flankenwinkel = Konsolenprogramm.Flankenwinkel(Bolt.Gewindeart);
+            Bolt.Senktiefe = Konsolenprogramm.BerechnungSenktiefe(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
+            Bolt.Schraubenkopfname = Konsolenprogramm.Schraubenkopfname(Bolt.Gewindeart, Bolt.Kopf);
+
+
+
+
+            // Ausgabeparameter
+            //double DurchmesserKernloch = Konsolenprogramm.BerechnungKernlochbohrung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Gewindeart, Bolt.WhitworthTabelle());
+            // double Schlüsselweite = Konsolenprogramm.AusgabeSchlüsselweite(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
+            // double Kopfdurchmesser = Konsolenprogramm.AusgabeKopfdurchmesser(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
+            // double Kopfhöhe = Konsolenprogramm.AusgabeKopfhöhe(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
+            // double Durchgangsbohrung = Konsolenprogramm.BerechnungDurchgangsbohrung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
+            //double Senkdurchmesser = Konsolenprogramm.BerechnungSenkdurchmesser(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
+            //double DurchmesserKegelsenkung = Konsolenprogramm.BerechnungDurchmesserKegelsenkung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
+            //double MaxBelastung = Konsolenprogramm.BerechnungMaxBelastung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Streckgrenze, Bolt.Gewindeart, Bolt.WhitworthTabelle());
+            //string WhitworthDurchmesser = Konsolenprogramm.AusgabeWitworthdurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
+            //string WhitworthFlankendurchmesser = Konsolenprogramm.AusgabeWitworthflankendurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
+            //string SchraubenbezeichnungMX = Konsolenprogramm.SchraubenbezeichnungMX(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse);
+            //string SchraubenbezeichnungMF = Konsolenprogramm.SchraubenbezeichnungMF(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser,Bolt.Steigung, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse);
+            //double Flankendurchmesser = Konsolenprogramm.Flankendurchmesser(Bolt.Gewindeart, Bolt.Durchmesser, Bolt.Steigung);
+
+
 
             // Ausgabe im Label
             lbl_Ausgabe.Content = "Kernlochdurchmesser: " + Bolt.Kernlochdurchmesser + " mm" + "     Schlüsselweite: " + Bolt.Schlüsselweite + " mm" +
                 "    Durchmesser: " + Bolt.Durchmesser + " mm" + "    Kopfhöhe: " + Bolt.Kopfhöhe + " mm" + "   Re: " + Bolt.Streckgrenze + " MPa"
                 + "   Rm: " + Bolt.Zugfestigkeit + " MPa";
 
-            lbl_Masse.Content = "Masse: " + Bolt.Gesamtmasse + " g" + "    Steigung: " + Bolt.Steigung;
-            lbl_Preis.Content = "Preis: " + Bolt.Gesamtpreis + " € " + "  Maximale Belastung: " + Bolt.MaxBelastung + " kN";
-
+            lbl_Masse.Content = "Masse: " + Bolt.Gesamtmasse + " g" + "    Steigung: " + Bolt.Steigung + "   Schraubenkopf: " + Bolt.Schraubenkopfname;
+            lbl_Preis.Content = "Preis: " + Bolt.Gesamtpreis + " € " + "     Flankenwinkel: " + Bolt.Flankenwinkel + "° " + "  Maximale Belastung: " + Bolt.MaxBelastung + " kN";
             if (Bolt.Gewindeart == 1)
             {
                 lbl_Schraubenbezeichnung.Visibility = Visibility.Visible;
@@ -120,6 +129,22 @@ namespace Wpf_Steuerprogramm
                 lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.WhitworthFlankendurchmesser + " mm" + "   Gangzahl: " + Bolt.Gangzahl;
                 lbl_SenkungUndBohrung.Visibility = Visibility.Hidden;
 
+            }
+
+            if (Bolt.Kopf == 1) //Sechskant
+            {
+                lbl_SenkungUndBohrung.Visibility = Visibility.Hidden;
+
+            }
+            if (Bolt.Kopf == 2) //Zylinder
+            {
+                lbl_SenkungUndBohrung.Visibility = Visibility.Visible;
+                lbl_SenkungUndBohrung.Content = "Kopfdurchmesser: " + Bolt.Kopfdurchmesser + " mm" + "   Senkdurchmesser: " + Bolt.Senkdurchmesser + " mm" + "   Senktiefe: " + Bolt.Senktiefe + " mm";
+            }
+            if (Bolt.Kopf == 3) //Senkkopf
+            {
+                lbl_SenkungUndBohrung.Visibility = Visibility.Visible;
+                lbl_SenkungUndBohrung.Content = "Kopfdurchmesser: " + Bolt.Kopfdurchmesser + " mm" + "   Senkdurchmesser: " + Bolt.DurchmesserKegelsenkung + " mm";
             }
 
         }
@@ -148,7 +173,6 @@ namespace Wpf_Steuerprogramm
 
             return Gewindeart;
         }
-
 
         public int rb_Kopf()
         {
@@ -198,7 +222,6 @@ namespace Wpf_Steuerprogramm
 
             return Material;
         }
-
         public string Festigkeitsklasse()
         {
             string Festigkeitsklasse = "";
@@ -297,12 +320,15 @@ namespace Wpf_Steuerprogramm
         {
             cmbBox_Metrisch.Visibility = Visibility.Hidden;
             cmbBox_Whitworth.Visibility = Visibility.Visible;
+            sp_Kopf.IsEnabled = false;
+
         }
 
         private void WhitworthUnchecked(object sender, RoutedEventArgs e)
         {
             cmbBox_Metrisch.Visibility = Visibility.Visible;
             cmbBox_Whitworth.Visibility = Visibility.Hidden;
+            sp_Kopf.IsEnabled = true;
         }
     }
 
@@ -316,6 +342,7 @@ namespace Wpf_Steuerprogramm
 
     class Konsolenprogramm
     {
+
         static public string SchraubenbezeichnungMX(int Gewindeart, int Kopf, double Durchmesser, double Gesamtlänge, string Festigkeitsklasse)
         {
             string schraubenbezeichnung = "";
@@ -384,6 +411,33 @@ namespace Wpf_Steuerprogramm
             return schraubenbezeichnung;
         }
 
+        static public string Schraubenkopfname(int Gewindeart, int Kopf)
+        {
+            string schraubenkopfname = "";
+
+            if (Kopf == 1 && Gewindeart != 3)
+            {
+                schraubenkopfname = "Sechskant";
+            }
+
+            if (Kopf == 2 && Gewindeart != 3)
+            {
+                schraubenkopfname = "Zylinderkopf";
+            }
+
+            if (Kopf == 3 && Gewindeart != 3)
+            {
+                schraubenkopfname = "Senkkopf";
+            }
+
+            if (Gewindeart == 3)
+            {
+                schraubenkopfname = "-/-";
+            }
+
+            return schraubenkopfname;
+        }
+
         static public double Flankendurchmesser(int Gewindeart, double Durchmesser, double Steigung)
         {
             double flankendurchmesser = 0;
@@ -405,6 +459,25 @@ namespace Wpf_Steuerprogramm
             }
 
             return Math.Round(flankendurchmesser, 2);
+        }
+        static public double Flankenwinkel(int Gewindeart)
+        {
+            double flankenwinkel = 0;
+
+            if (Gewindeart == 1)
+            {
+                flankenwinkel = 60;
+            }
+            if (Gewindeart == 2)
+            {
+                flankenwinkel = 60;
+            }
+            if (Gewindeart == 3)
+            {
+                flankenwinkel = 55;
+            }
+
+            return flankenwinkel;
         }
 
         static public double Gewindevolumen(int Gewindeart, double laengenausgabegewinde, double flankendurchmesser)
@@ -536,6 +609,10 @@ namespace Wpf_Steuerprogramm
 
             return Math.Round(gesamtpreis, 2);
         }
+
+
+
+
 
 
 
@@ -803,7 +880,7 @@ namespace Wpf_Steuerprogramm
                     }
                 }
 
-                Kerndurchmesser = Durchmesser - Steigung;
+                Kerndurchmesser = (Durchmesser - Steigung);
             }
 
             //Für Whitworth Gewinde
@@ -818,7 +895,7 @@ namespace Wpf_Steuerprogramm
                     }
                 }
             }
-            return Kerndurchmesser;
+            return Math.Round(Kerndurchmesser, 2);
         }
 
 
@@ -885,7 +962,7 @@ namespace Wpf_Steuerprogramm
                 }
             }
 
-            double Steigung = 25.4 / Gangzahl;
+            double Steigung = Math.Round(25.4 / Gangzahl, 2);
 
             return (Gangzahl, Steigung);
         }
@@ -1165,29 +1242,32 @@ namespace Wpf_Steuerprogramm
         public double Streckgrenze { get; set; }
         public double Zugfestigkeit { get; set; }
         public double Gangzahl { get; set; }
-        public object Festigkeitsklasse { get; set; }
-        public double Schlüsselweite { get; set; }
-        public double Kernlochdurchmesser { get; set; }
-        public double Kopfhöhe { get; set; }
-        public double Kopfdurchmesser { get; set; }
-        public double Durchgangsbohrung { get; set; }
-        public double Senkdurchmesser { get; set; }
-        public double DurchmesserKegelsenkung { get; set; }
-        public double MaxBelastung { get; set; }
-        public string WhitworthDurchmesser { get; set; }
-        public string WhitworthFlankendurchmesser { get; set; }
-        public object Flankendurchmesser { get; set; }
-        public string SchraubenbezeichnungMX { get; set; }
-        public string SchraubenbezeichnungMF { get; set; }
         public double Gesamtlänge { get; set; }
-        public object Gewindevolumen { get; internal set; }
-        public object Gewindemasse { get; internal set; }
-        public object Schaftvolumen { get; internal set; }
-        public object Schaftmasse { get; internal set; }
-        public object Kopfvolumen { get; internal set; }
-        public object Kopfmasse { get; internal set; }
-        public object Gesamtmasse { get; internal set; }
-        public double Gesamtpreis { get; internal set; }
+        public string Festigkeitsklasse { get; set; }
+        public object Gewindemasse { get;  set; }
+        public double Flankendurchmesser { get;  set; }
+        public double Gewindevolumen { get;  set; }
+        public double Schaftvolumen { get;  set; }
+        public double Schaftmasse { get;  set; }
+        public double Schlüsselweite { get;  set; }
+        public double Kopfhöhe { get;  set; }
+        public double Kopfdurchmesser { get;  set; }
+        public double Kopfvolumen { get;  set; }
+        public double Kopfmasse { get;  set; }
+        public double Gesamtmasse { get;  set; }
+        public double Kernlochdurchmesser { get;  set; }
+        public double Durchgangsbohrung { get;  set; }
+        public double Senkdurchmesser { get;  set; }
+        public double DurchmesserKegelsenkung { get;  set; }
+        public double MaxBelastung { get;  set; }
+        public string WhitworthDurchmesser { get;  set; }
+        public string WhitworthFlankendurchmesser { get;  set; }
+        public string SchraubenbezeichnungMX { get;  set; }
+        public string SchraubenbezeichnungMF { get;  set; }
+        public double Gesamtpreis { get;  set; }
+        public double Flankenwinkel { get;  set; }
+        public double Senktiefe { get;  set; }
+        public string Schraubenkopfname { get;  set; }
 
         public double[,] MetrischeTabelle()
         {
