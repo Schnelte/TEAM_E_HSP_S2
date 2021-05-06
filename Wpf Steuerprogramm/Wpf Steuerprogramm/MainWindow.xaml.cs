@@ -105,20 +105,22 @@ namespace Wpf_Steuerprogramm
 
             // Ausgabe im Label
             lbl_Ausgabe.Content = "Kernlochdurchmesser: " + Bolt.Kernlochdurchmesser + " mm" + "     Schlüsselweite: " + Bolt.Schlüsselweite + " mm" +
-                "    Durchmesser: " + Bolt.Durchmesser + " mm" + "    Kopfhöhe: " + Bolt.Kopfhöhe + " mm" + "   Re: " + Bolt.Streckgrenze + " MPa"
-                + "   Rm: " + Bolt.Zugfestigkeit + " MPa";
+                "    Durchmesser: " + Bolt.Durchmesser + " mm" + "    Kopfhöhe: " + Bolt.Kopfhöhe + " mm" + "\nRe: " + Bolt.Streckgrenze + " MPa"
+                + "   Rm: " + Bolt.Zugfestigkeit + " MPa"+ "   Gewindeart: "+Bolt.Gewindeart+"   Kopf: "+Bolt.Kopf;
 
             lbl_Masse.Content = "Masse: " + Bolt.Gesamtmasse + " g" + "    Steigung: " + Bolt.Steigung + "   Schraubenkopf: " + Bolt.Schraubenkopfname;
             lbl_Preis.Content = "Preis: " + Bolt.Gesamtpreis + " € " + "     Flankenwinkel: " + Bolt.Flankenwinkel + "° " + "  Maximale Belastung: " + Bolt.MaxBelastung + " kN";
             if (Bolt.Gewindeart == 1)
             {
+               
                 lbl_Schraubenbezeichnung.Visibility = Visibility.Visible;
-                lbl_Schraubenbezeichnung.Content = "Schraubenbezeichnung: " + Bolt.SchraubenbezeichnungMX + "    Kopf: " + Bolt.Kopf;
+                lbl_Schraubenbezeichnung.Content = "Schraubenbezeichnung: " + Bolt.SchraubenbezeichnungMX;
                 lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.Flankendurchmesser + " mm" + "  Durchmesser der Durchgangsbohrung: " + Bolt.Durchgangsbohrung + " mm";
 
             }
             if (Bolt.Gewindeart == 2)
             {
+                
                 lbl_Schraubenbezeichnung.Visibility = Visibility.Visible;
                 lbl_Schraubenbezeichnung.Content = "Schraubenbezeichnung: " + Bolt.SchraubenbezeichnungMF;
                 lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.Flankendurchmesser + " mm" + "  Durchmesser der Durchgangsbohrung: " + Bolt.Durchgangsbohrung + " mm";
@@ -128,6 +130,7 @@ namespace Wpf_Steuerprogramm
                 lbl_Schraubenbezeichnung.Visibility = Visibility.Hidden;
                 lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.WhitworthFlankendurchmesser + " mm" + "   Gangzahl: " + Bolt.Gangzahl;
                 lbl_SenkungUndBohrung.Visibility = Visibility.Hidden;
+                
 
             }
 
@@ -155,8 +158,9 @@ namespace Wpf_Steuerprogramm
         public int rb_Gewindeart()
         {
             int Gewindeart = 0;
+            int de = 0;
 
-            if (rb_MetrischStandard.IsChecked == true)
+            /*if (rb_MetrischStandard.IsChecked == true)
             {
                 Gewindeart = 1;
             }
@@ -170,14 +174,18 @@ namespace Wpf_Steuerprogramm
             {
                 Gewindeart = 3;
             }
+            */
 
+            de = cmbBox_Gewindeart.SelectedIndex;
+            Gewindeart = de + 1;
             return Gewindeart;
         }
 
         public int rb_Kopf()
         {
             int Kopf = 0;
-
+            int de = 0;
+            /*
             if (rb_Sechskant.IsChecked == true)
             {
                 Kopf = 1;
@@ -192,14 +200,17 @@ namespace Wpf_Steuerprogramm
             {
                 Kopf = 3;
             }
-
+            */
+            de = cmbBox_Kopf.SelectedIndex;
+            Kopf = de + 1;
             return Kopf;
         }
 
         public int rb_Material()
         {
             int Material = 0;
-
+            int de = 0;
+            /*
             if (rb_8_8.IsChecked == true)
             {
                 Material = 1;
@@ -219,29 +230,32 @@ namespace Wpf_Steuerprogramm
             {
                 Material = 4;
             }
+            */
 
+            de = cmbBox_Material.SelectedIndex;
+            Material = de + 1;
             return Material;
         }
         public string Festigkeitsklasse()
         {
             string Festigkeitsklasse = "";
 
-            if (rb_8_8.IsChecked == true)
+            if (cmbBox_8_8.IsSelected == true)
             {
                 Festigkeitsklasse = "8.8";
             }
 
-            if (rb_10_9.IsChecked == true)
+            if (cmbBox_10_9.IsSelected == true)
             {
                 Festigkeitsklasse = "10.9";
             }
 
-            if (rb_12_9.IsChecked == true)
+            if (cmbBox_12_9.IsSelected == true)
             {
                 Festigkeitsklasse = "12.9";
             }
 
-            if (rb_A4_50.IsChecked == true)
+            if (cmbBox_A4_50.IsSelected == true)
             {
                 Festigkeitsklasse = "A4-50";
             }
@@ -282,7 +296,7 @@ namespace Wpf_Steuerprogramm
 
         }
 
-
+        /*
         public void MetrischFeinChecked(object sender, RoutedEventArgs e)
         {
             txtBox_Steigung.IsEnabled = true;
@@ -292,7 +306,7 @@ namespace Wpf_Steuerprogramm
         {
 
             txtBox_Steigung.IsEnabled = false;
-        }
+        }*/
 
 
         public double Durchmesserauswahl(double[,] MetrischeTabelle, string[,] WhitworthTabelle, int Gewindeart)
@@ -316,20 +330,49 @@ namespace Wpf_Steuerprogramm
             return Durchmesser;
         }
 
-        private void WhitworthChecked(object sender, RoutedEventArgs e)
+        private void cmbBox_MX_Selected(object sender, RoutedEventArgs e)
         {
-            cmbBox_Metrisch.Visibility = Visibility.Hidden;
-            cmbBox_Whitworth.Visibility = Visibility.Visible;
-            sp_Kopf.IsEnabled = false;
+            txtBox_Steigung.IsEnabled = false;
+            //cmbBox_Kopf.IsEnabled = true;
+        }
+
+        private void cmbBox_MF_Selected(object sender, RoutedEventArgs e)
+        {
+            txtBox_Steigung.IsEnabled = true;
+            //cmbBox_Kopf.IsEnabled = true;
+        }
+
+        private void cmbBox_WW_Selected(object sender, RoutedEventArgs e)
+        {
+            txtBox_Steigung.IsEnabled = false;
+            cmbBox_Kopf.IsEnabled = false;
+            
 
         }
 
-        private void WhitworthUnchecked(object sender, RoutedEventArgs e)
+        private void cmbBox_WW_Unselected(object sender, RoutedEventArgs e)
         {
-            cmbBox_Metrisch.Visibility = Visibility.Visible;
-            cmbBox_Whitworth.Visibility = Visibility.Hidden;
-            sp_Kopf.IsEnabled = true;
+            cmbBox_Kopf.IsEnabled = true;
         }
+
+
+
+        /*
+private void WhitworthChecked(object sender, RoutedEventArgs e)
+{
+cmbBox_Metrisch.Visibility = Visibility.Hidden;
+cmbBox_Whitworth.Visibility = Visibility.Visible;
+sp_Kopf.IsEnabled = false;
+
+}
+
+private void WhitworthUnchecked(object sender, RoutedEventArgs e)
+{
+cmbBox_Metrisch.Visibility = Visibility.Visible;
+cmbBox_Whitworth.Visibility = Visibility.Hidden;
+sp_Kopf.IsEnabled = true;
+}
+*/
     }
 
 
