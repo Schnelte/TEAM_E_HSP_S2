@@ -18,9 +18,9 @@
         </ComboBox>
         <Label Content="Kopf" HorizontalAlignment="Left" Margin="633,104,0,0" VerticalAlignment="Top" Width="63"/>
         <ComboBox Width="130" x:Name="cmbBox_Kopf"  Height="25" Margin="633,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
-            <ComboBoxItem x:Name="cmbBox_Sechskant" IsSelected="True" Selected="cmbBox_Sechskant_Selected" >Sechskant</ComboBoxItem>
-            <ComboBoxItem x:Name="cmbBox_Zylinderkopf" Selected="cmbBox_Zylinderkopf_Selected">Zylinderkopf</ComboBoxItem>
-            <ComboBoxItem x:Name="cmbBox_Senkkopf" Selected="cmbBox_Senkkopf_Selected">Senkkopf</ComboBoxItem>
+            <ComboBoxItem x:Name="cmbBox_Sechskant" IsSelected="True" >Sechskant</ComboBoxItem>
+            <ComboBoxItem x:Name="cmbBox_Zylinderkopf" Selected="cmbBox_Zylinderkopf_Selected" Unselected="cmbBox_Zylinderkopf_Unselected">Zylinderkopf</ComboBoxItem>
+            <ComboBoxItem x:Name="cmbBox_Senkkopf" Selected="cmbBox_Senkkopf_Selected" Unselected="cmbBox_Senkkopf_Unselected">Senkkopf</ComboBoxItem>
         </ComboBox>
 
         <Label x:Name="lbl_Material" Content="Material" HorizontalAlignment="Left" Margin="804,102,0,0" VerticalAlignment="Top"/>

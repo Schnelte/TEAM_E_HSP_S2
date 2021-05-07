@@ -267,6 +267,12 @@ namespace Wpf_Steuerprogramm
             return (Durchmesser, Durchmesser_WW_Zoll);
         }
 
+        public void LabelHide()
+        {
+            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
+            lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
+        }
+
    
 
         private void cmbBox_MF_Selected(object sender, RoutedEventArgs e)
@@ -296,24 +302,25 @@ namespace Wpf_Steuerprogramm
         
         private void cmbBox_Zylinderkopf_Selected(object sender, RoutedEventArgs e)
         {
-            lbl_BildSechskant.Visibility = Visibility.Hidden;
-            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
+            LabelHide();
             lbl_BildZylinderkopf.Visibility = Visibility.Visible;
         }
 
         private void cmbBox_Senkkopf_Selected(object sender, RoutedEventArgs e)
         {
-            lbl_BildSechskant.Visibility = Visibility.Hidden;
+            LabelHide();
             lbl_BildSenkkopf.Visibility = Visibility.Visible;
+        }
+
+        private void cmbBox_Zylinderkopf_Unselected(object sender, RoutedEventArgs e)
+        {
             lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
         }
 
-        private void cmbBox_Sechskant_Selected(object sender, RoutedEventArgs e)
+        private void cmbBox_Senkkopf_Unselected(object sender, RoutedEventArgs e)
         {
-            
+            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
         }
-
-        
     }
 
 
