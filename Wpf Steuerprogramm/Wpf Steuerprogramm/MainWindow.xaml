@@ -5,77 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="900">
     <Grid>
-        <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="662,145,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click" Height="54"/>
-        <Label Content="Durchmesser" HorizontalAlignment="Left" Margin="35,27,0,0" VerticalAlignment="Top" Height="24" Width="108"/>
+        <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="763,358,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click" Height="54"/>
+        <Label Content="Durchmesser" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="24" Width="108"/>
         <Label Content="Gewindelänge" HorizontalAlignment="Left" Margin="35,128,0,0" VerticalAlignment="Top" Width="108"/>
         <TextBox x:Name="txtBox_Gewindelänge" HorizontalAlignment="Left" Height="23" Margin="35,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="10"/>
-
-
-
-        <Label Content="Schaftlänge" HorizontalAlignment="Left" Margin="288,128,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBox_Schaftlänge" HorizontalAlignment="Left" Height="23" Margin="288,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="10"/>
-
-        <Label Content="Steigung" HorizontalAlignment="Left" Margin="504,128,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBox_Steigung" HorizontalAlignment="Left" Height="23" Margin="469,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-
-
-        <Label Content="Gewindeart" HorizontalAlignment="Left" Margin="288,20,0,0" VerticalAlignment="Top" Width="107"/>
-
-        <ComboBox x:Name="cmbBox_Gewindeart" Width="180"   Margin="272,51,340,343" >
+        <ComboBox x:Name="cmbBox_Gewindeart" Width="180" Height="25" Margin="288,51,405,407" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBoxItem x:Name="cmbBox_MX" IsSelected="True" Selected="cmbBox_MX_Selected" Content="Metrisches Standartgewinde" />
             <ComboBoxItem x:Name="cmbBox_MF" Selected="cmbBox_MF_Selected" Content="Metrisches Feingewinde"/>
             <ComboBoxItem x:Name="cmbBox_WW" Selected="cmbBox_WW_Selected" Content="Whitworthgewinde" Unselected="cmbBox_WW_Unselected"/>
         </ComboBox>
-
-        <!--
-            <RadioButton x:Name="rb_MetrischStandard" Content="Metrisch Standard" HorizontalAlignment="Left" Margin="288,5,0,0" VerticalAlignment="Top" GroupName="Gewindeart" IsChecked="True"/>
-            <RadioButton x:Name="rb_MetrischFein" Content="Metrisch Fein" HorizontalAlignment="Left" Margin="288,5,0,0" VerticalAlignment="Top" GroupName="Gewindeart" Checked="MetrischFeinChecked" Unchecked="MetrischFeinUnchecked"/>
-            <RadioButton x:Name="rb_Whitworth" Content="Whitworth" HorizontalAlignment="Left" Margin="288,5,0,0" VerticalAlignment="Top" GroupName="Gewindeart" Checked="WhitworthChecked" Unchecked="WhitworthUnchecked"/>
-            -->
-
-
-        <Label Content="Kopf" HorizontalAlignment="Left" Margin="504,20,0,0" VerticalAlignment="Top" Width="139"/>
-        <ComboBox Width="100" x:Name="cmbBox_Kopf"  Margin="504,51,188,343"  >
+        <Label Content="Kopf" HorizontalAlignment="Left" Margin="505,10,0,0" VerticalAlignment="Top" Width="139"/>
+        <ComboBox Width="100" x:Name="cmbBox_Kopf"  Height="25" Margin="505,51,268,407" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <ComboBoxItem x:Name="cmbBox_Sechskant" IsSelected="True">Sechskant</ComboBoxItem>
             <ComboBoxItem x:Name="cmbBox_Zylinderkopf">Zylinderkopf</ComboBoxItem>
             <ComboBoxItem x:Name="cmbBox_Senkkopf">Senkkopf</ComboBoxItem>
         </ComboBox>
-        <!--
-            
-            <RadioButton x:Name="rb_Sechskant" Content="Sechskant" HorizontalAlignment="Left" Margin="504,5,0,0" VerticalAlignment="Top" GroupName="Kopf" IsChecked="True"/>
-            <RadioButton x:Name="rb_Zylinderkopf" Content="Zylinderkopf" HorizontalAlignment="Left" Margin="504,5,0,0" VerticalAlignment="Top" GroupName="Kopf"/>
-            <RadioButton x:Name="rb_Senkkopf" Content="Senkkopf" HorizontalAlignment="Left" Margin="504,5,0,0" VerticalAlignment="Top" GroupName="Kopf"/>
-            -->
 
+        <Label x:Name="lbl_Material" Content="Material" HorizontalAlignment="Left" Margin="692,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox Width="80" Height="25" x:Name="cmbBox_Material" Margin="692,51,101,407" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ComboBoxItem x:Name="cmbBox_8_8" IsSelected="True">Stahl 8.8</ComboBoxItem>
+            <ComboBoxItem x:Name="cmbBox_10_9">Stahl 10.9</ComboBoxItem>
+            <ComboBoxItem x:Name="cmbBox_12_9">Stahl 12.9</ComboBoxItem>
+            <ComboBoxItem x:Name="cmbBox_A4_50">A4-50</ComboBoxItem>
+        </ComboBox>
 
-        <Label x:Name="lbl_Material" Content="Material" HorizontalAlignment="Left" Margin="692,20,0,0" VerticalAlignment="Top"/>
-        <ComboBox Width="80" Height="25" x:Name="cmbBox_Material" Margin="682,51,30,343">
-                <ComboBoxItem x:Name="cmbBox_8_8" IsSelected="True">Stahl 8.8</ComboBoxItem>
-                <ComboBoxItem x:Name="cmbBox_10_9">Stahl 10.9</ComboBoxItem>
-                <ComboBoxItem x:Name="cmbBox_12_9">Stahl 12.9</ComboBoxItem>
-                <ComboBoxItem x:Name="cmbBox_A4_50">A4-50</ComboBoxItem>
-            </ComboBox>
-
-        <!--
-        <RadioButton x:Name="rb_8_8" Content="Stahl 8.8" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top" GroupName="Material" IsChecked="True"/>
-            <RadioButton x:Name="rb_10_9" Content="Stahl 10.9" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top" GroupName="Material"/>
-            <RadioButton x:Name="rb_12_9" Content="Stahl 12.9" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top" GroupName="Material"/>
-            <RadioButton x:Name="rb_A4_50" Content="A4-50" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top"  GroupName="Material"/>
-        -->
-
-        <StackPanel x:Name="sp_gesamteAusgabe">
-            <Label x:Name="lbl_Ausgabe" Content="Berechnungen" HorizontalAlignment="Left" Height="62" Margin="20,200,0,0" VerticalAlignment="Top" Width="699"/>
-            <Label x:Name="lbl_Schraubenbezeichnung" HorizontalAlignment="Left" Height="Auto" Margin="20,5,0,0" VerticalAlignment="Top" Width="699">Schraubenbezeichnug</Label>
-            <Label x:Name="lbl_Masse" VerticalAlignment="Top" Margin="20,5,0,0"/>
-            <Label x:Name="lbl_Preis" VerticalAlignment="Top" Margin="20,5,0,0">Preis:</Label>
-            <Label x:Name="lbl_Flankendurchmesser" VerticalAlignment="Top" Margin="20,5,0,0">Flankendurchmesser:</Label>
-            <Label x:Name="lbl_SenkungUndBohrung" VerticalAlignment="Top" Margin="20,5,0,0">Senkungen und Bohrungen:</Label>
-
-        </StackPanel>
-
-        <ComboBox x:Name="cmbBox_Metrisch" HorizontalAlignment="Left" Margin="35,69,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="cmbBox_Metrisch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25" Margin="23,51,0,0">
             <ComboBoxItem>M3</ComboBoxItem>
             <ComboBoxItem>M4</ComboBoxItem>
             <ComboBoxItem>M5</ComboBoxItem>
@@ -86,7 +42,7 @@
             <ComboBoxItem>M16</ComboBoxItem>
             <ComboBoxItem>M20</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="cmbBox_Whitworth" HorizontalAlignment="Left" Margin="35,69,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden">
+        <ComboBox x:Name="cmbBox_Whitworth" HorizontalAlignment="Left" Height="25" Margin="23,51,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden">
             <ComboBoxItem>1/4''</ComboBoxItem>
             <ComboBoxItem>3/8''</ComboBoxItem>
             <ComboBoxItem>1/2''</ComboBoxItem>
@@ -98,6 +54,54 @@
         </ComboBox>
 
 
+
+        <Label Content="Schaftlänge" HorizontalAlignment="Left" Margin="288,128,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Schaftlänge" HorizontalAlignment="Left" Height="23" Margin="288,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="10"/>
+
+        <Label Content="Steigung" HorizontalAlignment="Left" Margin="504,128,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Steigung" HorizontalAlignment="Left" Height="23" Margin="505,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+
+
+        <Label Content="Gewindeart" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="107" Margin="288,10,0,0"/>
+
+
+
+        <!--
+            <RadioButton x:Name="rb_MetrischStandard" Content="Metrisch Standard" HorizontalAlignment="Left" Margin="288,5,0,0" VerticalAlignment="Top" GroupName="Gewindeart" IsChecked="True"/>
+            <RadioButton x:Name="rb_MetrischFein" Content="Metrisch Fein" HorizontalAlignment="Left" Margin="288,5,0,0" VerticalAlignment="Top" GroupName="Gewindeart" Checked="MetrischFeinChecked" Unchecked="MetrischFeinUnchecked"/>
+            <RadioButton x:Name="rb_Whitworth" Content="Whitworth" HorizontalAlignment="Left" Margin="288,5,0,0" VerticalAlignment="Top" GroupName="Gewindeart" Checked="WhitworthChecked" Unchecked="WhitworthUnchecked"/>
+            -->
+
+
+
+        <!--
+            
+            <RadioButton x:Name="rb_Sechskant" Content="Sechskant" HorizontalAlignment="Left" Margin="504,5,0,0" VerticalAlignment="Top" GroupName="Kopf" IsChecked="True"/>
+            <RadioButton x:Name="rb_Zylinderkopf" Content="Zylinderkopf" HorizontalAlignment="Left" Margin="504,5,0,0" VerticalAlignment="Top" GroupName="Kopf"/>
+            <RadioButton x:Name="rb_Senkkopf" Content="Senkkopf" HorizontalAlignment="Left" Margin="504,5,0,0" VerticalAlignment="Top" GroupName="Kopf"/>
+            -->
+
+
+
+
+        <!--
+        <RadioButton x:Name="rb_8_8" Content="Stahl 8.8" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top" GroupName="Material" IsChecked="True"/>
+            <RadioButton x:Name="rb_10_9" Content="Stahl 10.9" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top" GroupName="Material"/>
+            <RadioButton x:Name="rb_12_9" Content="Stahl 12.9" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top" GroupName="Material"/>
+            <RadioButton x:Name="rb_A4_50" Content="A4-50" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top"  GroupName="Material"/>
+        -->
+
+        <StackPanel x:Name="sp_gesamteAusgabe" HorizontalAlignment="Left" Width="Auto" VerticalAlignment="Top" Height="Auto" Margin="10,256,0,0">
+            <Label x:Name="lbl_Ausgabe" Content="Berechnungen" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="699"/>
+            <Label x:Name="lbl_Schraubenbezeichnung" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="699">Schraubenbezeichnug</Label>
+            <Label x:Name="lbl_Masse" VerticalAlignment="Top" />
+            <Label x:Name="lbl_Preis" VerticalAlignment="Top" >Preis:</Label>
+            <Label x:Name="lbl_Flankendurchmesser" VerticalAlignment="Top" >Flankendurchmesser:</Label>
+            <Label x:Name="lbl_SenkungUndBohrung" VerticalAlignment="Top">Senkungen und Bohrungen:</Label>
+            <RadioButton x:Name="rb_Rechtsgewinde" Content="Rechtsgewinde" IsChecked="True" GroupName="Gewinderichtung" />
+            <RadioButton x:Name="rb_Linksgewinde" Content="Linksgewinde" GroupName="Gewinderichtung"/>
+
+        </StackPanel>
 
     </Grid>
 </Window>
