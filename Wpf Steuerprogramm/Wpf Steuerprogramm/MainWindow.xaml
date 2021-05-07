@@ -7,31 +7,31 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="900">
     <Grid>
-        <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="633,306,0,0" VerticalAlignment="Top" Width="251" Click="Button_Click" Height="43"/>
-        <Label Content="Durchmesser" HorizontalAlignment="Left" Margin="804,31,-17,0" VerticalAlignment="Top" Height="24" Width="108"/>
-        <Label Content="Gewindelänge" HorizontalAlignment="Left" Margin="633,189,0,0" VerticalAlignment="Top" Width="87"/>
-        <TextBox x:Name="txtBox_Gewindelänge" HorizontalAlignment="Left" Height="23" Margin="633,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Text="10"/>
-        <ComboBox x:Name="cmbBox_Gewindeart" Width="130" Height="25" Margin="633,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="591,453,0,0" VerticalAlignment="Top" Width="251" Click="Button_Click" Height="43"/>
+        <Label Content="Durchmesser" HorizontalAlignment="Left" Margin="754,45,0,0" VerticalAlignment="Top" Height="24" Width="108"/>
+        <Label Content="Gewindelänge" HorizontalAlignment="Left" Margin="591,167,0,0" VerticalAlignment="Top" Width="87"/>
+        <TextBox x:Name="txtBox_Gewindelänge" HorizontalAlignment="Left" Height="23" Margin="591,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Text="10"/>
+        <ComboBox x:Name="cmbBox_Gewindeart" Width="130" Height="25" Margin="602,69,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBoxItem x:Name="cmbBox_MX" IsSelected="True" Content="Metrisch-Standard" />
             <ComboBoxItem x:Name="cmbBox_MF" Selected="cmbBox_MF_Selected" Content="Metrisch-Fein" Unselected="cmbBox_MF_Unselected"/>
             <ComboBoxItem x:Name="cmbBox_WW" Selected="cmbBox_WW_Selected" Content="Whitworth" Unselected="cmbBox_WW_Unselected"/>
         </ComboBox>
-        <Label Content="Kopf" HorizontalAlignment="Left" Margin="633,104,0,0" VerticalAlignment="Top" Width="63"/>
-        <ComboBox Width="130" x:Name="cmbBox_Kopf"  Height="25" Margin="633,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <Label Content="Kopf" HorizontalAlignment="Left" Margin="602,104,0,0" VerticalAlignment="Top" Width="63"/>
+        <ComboBox Width="130" x:Name="cmbBox_Kopf"  Height="25" Margin="602,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <ComboBoxItem x:Name="cmbBox_Sechskant" IsSelected="True" >Sechskant</ComboBoxItem>
             <ComboBoxItem x:Name="cmbBox_Zylinderkopf" Selected="cmbBox_Zylinderkopf_Selected" Unselected="cmbBox_Zylinderkopf_Unselected">Zylinderkopf</ComboBoxItem>
             <ComboBoxItem x:Name="cmbBox_Senkkopf" Selected="cmbBox_Senkkopf_Selected" Unselected="cmbBox_Senkkopf_Unselected">Senkkopf</ComboBoxItem>
         </ComboBox>
 
-        <Label x:Name="lbl_Material" Content="Material" HorizontalAlignment="Left" Margin="804,102,0,0" VerticalAlignment="Top"/>
-        <ComboBox Width="80" Height="25" x:Name="cmbBox_Material" Margin="804,128,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Label x:Name="lbl_Material" Content="Material" HorizontalAlignment="Left" Margin="754,104,0,0" VerticalAlignment="Top"/>
+        <ComboBox Width="80" Height="25" x:Name="cmbBox_Material" Margin="754,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBoxItem x:Name="cmbBox_8_8" IsSelected="True">Stahl 8.8</ComboBoxItem>
             <ComboBoxItem x:Name="cmbBox_10_9">Stahl 10.9</ComboBoxItem>
             <ComboBoxItem x:Name="cmbBox_12_9">Stahl 12.9</ComboBoxItem>
             <ComboBoxItem x:Name="cmbBox_A4_50">A4-50</ComboBoxItem>
         </ComboBox>
 
-        <ComboBox x:Name="cmbBox_Metrisch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="25" Margin="804,60,0,0">
+        <ComboBox x:Name="cmbBox_Metrisch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="25" Margin="754,69,0,0">
             <ComboBoxItem>M3</ComboBoxItem>
             <ComboBoxItem>M4</ComboBoxItem>
             <ComboBoxItem>M5</ComboBoxItem>
@@ -42,7 +42,7 @@
             <ComboBoxItem>M16</ComboBoxItem>
             <ComboBoxItem>M20</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="cmbBox_Whitworth" HorizontalAlignment="Left" Height="25" Margin="804,60,0,0" VerticalAlignment="Top" Width="80" Visibility="Hidden">
+        <ComboBox x:Name="cmbBox_Whitworth" HorizontalAlignment="Left" Height="25" Margin="754,69,0,0" VerticalAlignment="Top" Width="80" Visibility="Hidden">
             <ComboBoxItem>1/4''</ComboBoxItem>
             <ComboBoxItem>3/8''</ComboBoxItem>
             <ComboBoxItem>1/2''</ComboBoxItem>
@@ -55,14 +55,14 @@
 
 
 
-        <Label Content="Schaftlänge" HorizontalAlignment="Left" Margin="736,189,0,0" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="txtBox_Schaftlänge" HorizontalAlignment="Left" Height="23" Margin="736,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Text="10"/>
+        <Label Content="Schaftlänge" HorizontalAlignment="Left" Margin="696,167,0,0" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="txtBox_Schaftlänge" HorizontalAlignment="Left" Height="23" Margin="696,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Text="10"/>
 
-        <Label Content="Steigung" HorizontalAlignment="Left" Margin="831,189,0,0" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.549,0.846"/>
-        <TextBox x:Name="txtBox_Steigung" HorizontalAlignment="Left" Height="24" Margin="834,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsEnabled="False"/>
+        <Label Content="Steigung" HorizontalAlignment="Left" Margin="792,167,0,0" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.549,0.846"/>
+        <TextBox x:Name="txtBox_Steigung" HorizontalAlignment="Left" Height="23" Margin="792,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsEnabled="False"/>
 
 
-        <Label Content="Gewindeart" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="107" Margin="633,33,0,0"/>
+        <Label Content="Gewindeart" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="107" Margin="602,45,0,0"/>
 
 
 
@@ -91,19 +91,19 @@
             <RadioButton x:Name="rb_A4_50" Content="A4-50" HorizontalAlignment="Left" Margin="692,5,0,0" VerticalAlignment="Top"  GroupName="Material"/>
         -->
 
-        <StackPanel x:Name="sp_gesamteAusgabe" HorizontalAlignment="Left" Width="Auto" VerticalAlignment="Top" Height="Auto" Margin="10,256,0,0">
+        <StackPanel x:Name="sp_gesamteAusgabe" HorizontalAlignment="Left" Width="513" VerticalAlignment="Top" Height="Auto" Margin="23,305,0,0">
             <Label x:Name="lbl_Ausgabe" Content="Berechnungen" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="699"/>
             <Label x:Name="lbl_Schraubenbezeichnung" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="699">Schraubenbezeichnug</Label>
             <Label x:Name="lbl_Masse" VerticalAlignment="Top" />
             <Label x:Name="lbl_Preis" VerticalAlignment="Top" >Preis:</Label>
             <Label x:Name="lbl_Flankendurchmesser" VerticalAlignment="Top" >Flankendurchmesser:</Label>
-            <Label x:Name="lbl_SenkungUndBohrung" VerticalAlignment="Top">Senkungen und Bohrungen:</Label>
-            <RadioButton x:Name="rb_Rechtsgewinde" Content="Rechtsgewinde" IsChecked="True" GroupName="Gewinderichtung" />
+            <Label x:Name="lbl_SenkungUndBohrung" VerticalAlignment="Top" Content="Senkungen und Bohrungen:"/>
             <RadioButton x:Name="rb_Linksgewinde" Content="Linksgewinde" GroupName="Gewinderichtung"/>
+            <RadioButton x:Name="rb_Rechtsgewinde" Content="Rechtsgewinde" IsChecked="True" GroupName="Gewinderichtung" />
 
         </StackPanel>
-        <Label Content="Eingaben:" HorizontalAlignment="Left" Height="33" Margin="611,0,0,0" VerticalAlignment="Top" Width="152" FontWeight="Bold" FontSize="16"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="270" Margin="618,31,0,0" VerticalAlignment="Top" Width="277"/>
+        <Label Content="Eingaben:" HorizontalAlignment="Left" Height="33" Margin="580,0,0,0" VerticalAlignment="Top" Width="152" FontWeight="Bold" FontSize="16"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="270" Margin="580,35,0,0" VerticalAlignment="Top" Width="278"/>
         <Label Content="Schraubendarstellung:" HorizontalAlignment="Left" Height="45" Margin="23,0,0,0" VerticalAlignment="Top" Width="180" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lbl_BildSechskant" HorizontalAlignment="Left" Height="207" Margin="23,31,0,0" VerticalAlignment="Top" Width="468" Visibility="Visible" >
             <Image Source="/Bilder/Sechskantschraube mit Schaft.jpg" Height="197" Width="458" />
@@ -114,7 +114,12 @@
         <Label x:Name="lbl_BildZylinderkopf" HorizontalAlignment="Left" Height="207" Margin="23,31,0,0" VerticalAlignment="Top" Width="468" Visibility="Hidden">
             <Image Source="/Bilder/Zylinderkopfschraube mit Schaft.jpg" Height="197" Width="458" />
         </Label>
-        <Button Content="Abbrechen" HorizontalAlignment="Left" Margin="634,354,0,0" VerticalAlignment="Top" Width="250" Height="40"/>
+        <Button Content="Abbrechen" HorizontalAlignment="Left" Margin="592,501,0,0" VerticalAlignment="Top" Width="250" Height="40"/>
+        <TextBox x:Name="txtBox_Gewindelänge_Copy" HorizontalAlignment="Left" Height="23" Margin="591,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Text="10"/>
+        <Label Content="Schaftlänge" HorizontalAlignment="Left" Margin="696,167,0,0" VerticalAlignment="Top" Width="80"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="203" Margin="23,35,0,0" VerticalAlignment="Top" Width="524"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="255" Margin="23,286,0,0" VerticalAlignment="Top" Width="524"/>
+        <Label Content="Ausgaben:" HorizontalAlignment="Left" Height="38" Margin="23,248,0,0" VerticalAlignment="Top" Width="228" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>
