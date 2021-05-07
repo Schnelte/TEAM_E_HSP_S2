@@ -114,6 +114,7 @@
         <Label x:Name="lbl_BildZylinderkopf" HorizontalAlignment="Left" Height="207" Margin="23,31,0,0" VerticalAlignment="Top" Width="468" Visibility="Hidden">
             <Image Source="/Bilder/Zylinderkopfschraube mit Schaft.jpg" Height="197" Width="458" />
         </Label>
+        <Button Content="Abbrechen" HorizontalAlignment="Left" Margin="634,354,0,0" VerticalAlignment="Top" Width="250" Height="40"/>
 
     </Grid>
 </Window>
