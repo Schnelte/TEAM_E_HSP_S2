@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Bilder\Sechskantschraube mit Schaft.jpg" />
+    <Resource Include="Bilder\Senkkopfschraube mit schaft.jpg" />
+    <Resource Include="Bilder\Zylinderkopfschraube mit Schaft.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

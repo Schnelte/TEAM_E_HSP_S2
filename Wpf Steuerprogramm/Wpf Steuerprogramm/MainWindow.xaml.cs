@@ -86,25 +86,7 @@ namespace Wpf_Steuerprogramm
             Bolt.SchraubenbezeichnungWW = Konsolenprogramm.SchraubenbezeichnungWW((string)Bolt.DurchmesserWW_Zoll, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse, Bolt.Schraubenrichtung);
 
 
-
-
-            // Ausgabeparameter
-            //double DurchmesserKernloch = Konsolenprogramm.BerechnungKernlochbohrung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Gewindeart, Bolt.WhitworthTabelle());
-            // double Schlüsselweite = Konsolenprogramm.AusgabeSchlüsselweite(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
-            // double Kopfdurchmesser = Konsolenprogramm.AusgabeKopfdurchmesser(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
-            // double Kopfhöhe = Konsolenprogramm.AusgabeKopfhöhe(Bolt.Kopf, Bolt.Durchmesser, Bolt.MetrischeTabelle());
-            // double Durchgangsbohrung = Konsolenprogramm.BerechnungDurchgangsbohrung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
-            //double Senkdurchmesser = Konsolenprogramm.BerechnungSenkdurchmesser(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
-            //double DurchmesserKegelsenkung = Konsolenprogramm.BerechnungDurchmesserKegelsenkung(Bolt.MetrischeTabelle(), Bolt.Durchmesser);
-            //double MaxBelastung = Konsolenprogramm.BerechnungMaxBelastung(Bolt.Durchmesser, Bolt.Steigung, Bolt.MetrischeTabelle(), Bolt.Streckgrenze, Bolt.Gewindeart, Bolt.WhitworthTabelle());
-            //string WhitworthDurchmesser = Konsolenprogramm.AusgabeWitworthdurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
-            //string WhitworthFlankendurchmesser = Konsolenprogramm.AusgabeWitworthflankendurchmesser(Bolt.WhitworthTabelle(), Bolt.Durchmesser);
-            //string SchraubenbezeichnungMX = Konsolenprogramm.SchraubenbezeichnungMX(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse);
-            //string SchraubenbezeichnungMF = Konsolenprogramm.SchraubenbezeichnungMF(Bolt.Gewindeart, Bolt.Kopf, Bolt.Durchmesser,Bolt.Steigung, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse);
-            //double Flankendurchmesser = Konsolenprogramm.Flankendurchmesser(Bolt.Gewindeart, Bolt.Durchmesser, Bolt.Steigung);
-
-
-
+                      
             // Ausgabe im Label
             lbl_Ausgabe.Content = "Kernlochdurchmesser: " + Bolt.Kernlochdurchmesser + " mm" + "     Schlüsselweite: " + Bolt.Schlüsselweite + " mm" +
                 "    Durchmesser: " + Bolt.Durchmesser + " mm" + "    Kopfhöhe: " + Bolt.Kopfhöhe + " mm" + "\nRe: " + Bolt.Streckgrenze + " MPa"
@@ -178,22 +160,6 @@ namespace Wpf_Steuerprogramm
             int Gewindeart = 0;
             int de = 0;
 
-            /*if (rb_MetrischStandard.IsChecked == true)
-            {
-                Gewindeart = 1;
-            }
-
-            if (rb_MetrischFein.IsChecked == true)
-            {
-                Gewindeart = 2;
-            }
-
-            if (rb_Whitworth.IsChecked == true)
-            {
-                Gewindeart = 3;
-            }
-            */
-
             de = cmbBox_Gewindeart.SelectedIndex;
             Gewindeart = de + 1;
             return Gewindeart;
@@ -203,22 +169,7 @@ namespace Wpf_Steuerprogramm
         {
             int Kopf = 0;
             int de = 0;
-            /*
-            if (rb_Sechskant.IsChecked == true)
-            {
-                Kopf = 1;
-            }
-
-            if (rb_Zylinderkopf.IsChecked == true)
-            {
-                Kopf = 2;
-            }
-
-            if (rb_Senkkopf.IsChecked == true)
-            {
-                Kopf = 3;
-            }
-            */
+           
             de = cmbBox_Kopf.SelectedIndex;
             Kopf = de + 1;
             return Kopf;
@@ -228,28 +179,7 @@ namespace Wpf_Steuerprogramm
         {
             int Material = 0;
             int de = 0;
-            /*
-            if (rb_8_8.IsChecked == true)
-            {
-                Material = 1;
-            }
-
-            if (rb_10_9.IsChecked == true)
-            {
-                Material = 2;
-            }
-
-            if (rb_12_9.IsChecked == true)
-            {
-                Material = 3;
-            }
-
-            if (rb_A4_50.IsChecked == true)
-            {
-                Material = 4;
-            }
-            */
-
+           
             de = cmbBox_Material.SelectedIndex;
             Material = de + 1;
             return Material;
@@ -314,18 +244,7 @@ namespace Wpf_Steuerprogramm
 
         }
 
-        /*
-        public void MetrischFeinChecked(object sender, RoutedEventArgs e)
-        {
-            txtBox_Steigung.IsEnabled = true;
-        }
-
-        public void MetrischFeinUnchecked(object sender, RoutedEventArgs e)
-        {
-
-            txtBox_Steigung.IsEnabled = false;
-        }*/
-
+       
 
         public (double, string) Durchmesserauswahl(double[,] MetrischeTabelle, string[,] WhitworthTabelle, int Gewindeart)
         {
@@ -348,54 +267,53 @@ namespace Wpf_Steuerprogramm
             return (Durchmesser, Durchmesser_WW_Zoll);
         }
 
-
-
-        private void cmbBox_MX_Selected(object sender, RoutedEventArgs e)
-        {
-            //txtBox_Steigung.IsEnabled = false;
-            //cmbBox_Kopf.IsEnabled = true;
-        }
+   
 
         private void cmbBox_MF_Selected(object sender, RoutedEventArgs e)
         {
             txtBox_Steigung.IsEnabled = true;
-            //cmbBox_Kopf.IsEnabled = true;
+          
+        }
+        private void cmbBox_MF_Unselected(object sender, RoutedEventArgs e)
+        {
+            txtBox_Steigung.IsEnabled = false;
         }
 
         private void cmbBox_WW_Selected(object sender, RoutedEventArgs e)
         {
-            txtBox_Steigung.IsEnabled = false;
-            cmbBox_Kopf.IsEnabled = false;
-
             cmbBox_Whitworth.Visibility = Visibility.Visible;
-
-
         }
 
         private void cmbBox_WW_Unselected(object sender, RoutedEventArgs e)
         {
-            cmbBox_Kopf.IsEnabled = true;
+           
             cmbBox_Whitworth.Visibility = Visibility.Hidden;
         }
 
 
 
-        /*
-private void WhitworthChecked(object sender, RoutedEventArgs e)
-{
-cmbBox_Metrisch.Visibility = Visibility.Hidden;
-cmbBox_Whitworth.Visibility = Visibility.Visible;
-sp_Kopf.IsEnabled = false;
+        
+        
+        private void cmbBox_Zylinderkopf_Selected(object sender, RoutedEventArgs e)
+        {
+            lbl_BildSechskant.Visibility = Visibility.Hidden;
+            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
+            lbl_BildZylinderkopf.Visibility = Visibility.Visible;
+        }
 
-}
+        private void cmbBox_Senkkopf_Selected(object sender, RoutedEventArgs e)
+        {
+            lbl_BildSechskant.Visibility = Visibility.Hidden;
+            lbl_BildSenkkopf.Visibility = Visibility.Visible;
+            lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
+        }
 
-private void WhitworthUnchecked(object sender, RoutedEventArgs e)
-{
-cmbBox_Metrisch.Visibility = Visibility.Visible;
-cmbBox_Whitworth.Visibility = Visibility.Hidden;
-sp_Kopf.IsEnabled = true;
-}
-*/
+        private void cmbBox_Sechskant_Selected(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        
     }
 
 
@@ -403,6 +321,7 @@ sp_Kopf.IsEnabled = true;
 
 
 
+    #region Konsolenprogramm
 
     //Berechnungmethoden
 
@@ -1309,6 +1228,10 @@ sp_Kopf.IsEnabled = true;
         }
     }
 
+
+    #endregion
+
+#region SchraubenKlasse
     class Schraube
     {
         public double Durchmesser { get; set; }
@@ -1363,4 +1286,5 @@ sp_Kopf.IsEnabled = true;
 
 
     }
+    #endregion
 }
