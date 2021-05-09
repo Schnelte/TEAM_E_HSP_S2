@@ -90,8 +90,8 @@ namespace Wpf_Steuerprogramm
                       
             // Ausgabe im Label
             lbl_Ausgabe.Content = "Kernlochdurchmesser: " + Bolt.Kernlochdurchmesser + " mm" + "     Schlüsselweite: " + Bolt.Schlüsselweite + " mm" +
-                "    Durchmesser: " + Bolt.Durchmesser + " mm" + "    Kopfhöhe: " + Bolt.Kopfhöhe + " mm" + "\nRe: " + Bolt.Streckgrenze + " MPa"
-                + "   Rm: " + Bolt.Zugfestigkeit + " MPa" + "   Gewindeart: " + Bolt.Gewindeart + "   Kopf: " + Bolt.Kopf + "    Schraubrichtung: " + Bolt.Schraubenrichtung;
+                "    Durchmesser: " + Bolt.Durchmesser + " mm" + "\nKopfhöhe: " + Bolt.Kopfhöhe + " mm" + "   Re: " + Bolt.Streckgrenze + " MPa"
+                + "   Rm: " + Bolt.Zugfestigkeit + " MPa" + "   Gewindeart: " + Bolt.Gewindeart + "   Kopf: " + Bolt.Kopf + "\nSchraubrichtung: " + Bolt.Schraubenrichtung;
 
             lbl_Masse.Content = "Masse: " + Bolt.Gesamtmasse + " g" + "    Steigung: " + Bolt.Steigung + "   Schraubenkopf: " + Bolt.Schraubenkopfname;
             lbl_Preis.Content = "Preis: " + Bolt.Gesamtpreis + " € " + "     Flankenwinkel: " + Bolt.Flankenwinkel + "° " + "  Maximale Belastung: " + Bolt.MaxBelastung + " kN";
@@ -268,11 +268,7 @@ namespace Wpf_Steuerprogramm
             return (Durchmesser, Durchmesser_WW_Zoll);
         }
 
-        public void LabelHide()
-        {
-            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
-            lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
-        }
+        
 
    
 
@@ -375,32 +371,56 @@ namespace Wpf_Steuerprogramm
         }
         //numeric_up_down Code endet hier
 
+       
+
+        
+
         private void cmbBox_Zylinderkopf_Selected(object sender, RoutedEventArgs e)
         {
-            LabelHide();
+            lbl_BildSechskant.Visibility = Visibility.Hidden;
+            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
             lbl_BildZylinderkopf.Visibility = Visibility.Visible;
         }
 
         private void cmbBox_Senkkopf_Selected(object sender, RoutedEventArgs e)
         {
-            LabelHide();
+            lbl_BildSechskant.Visibility = Visibility.Hidden;
             lbl_BildSenkkopf.Visibility = Visibility.Visible;
-        }
-
-        private void cmbBox_Zylinderkopf_Unselected(object sender, RoutedEventArgs e)
-        {
             lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
         }
 
-        private void cmbBox_Senkkopf_Unselected(object sender, RoutedEventArgs e)
-        {
-            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
-        }
+        
 
         private void btn_Cancel_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Close();
 
+        }
+
+        private void chk1_Checked(object sender, RoutedEventArgs e) //Darkmode
+        {
+            Properties.Settings.Default.ColorMode = "Black";
+            // Properties.Settings.Default.Save();
+        }
+
+        private void chk1_Unchecked(object sender, RoutedEventArgs e) //Whitemode
+        {
+            Properties.Settings.Default.ColorMode = "White";
+            // Properties.Settings.Default.Save();
+        }
+
+        private void cmbBox_Zylinderkopf_Unselected(object sender, RoutedEventArgs e)
+        {
+            lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
+            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
+            lbl_BildSechskant.Visibility = Visibility.Visible;
+        }
+
+        private void cmbBox_Senkkopf_Unselected(object sender, RoutedEventArgs e)
+        {
+            lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
+            lbl_BildSenkkopf.Visibility = Visibility.Hidden;
+            lbl_BildSechskant.Visibility = Visibility.Visible;
         }
     }
 
