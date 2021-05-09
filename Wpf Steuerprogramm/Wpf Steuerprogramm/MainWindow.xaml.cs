@@ -23,6 +23,7 @@ namespace Wpf_Steuerprogramm
         public MainWindow()
         {
             InitializeComponent();
+            txtBox_Gewindelänge.Text = _numValue.ToString();
         }
 
 
@@ -296,10 +297,81 @@ namespace Wpf_Steuerprogramm
             cmbBox_Whitworth.Visibility = Visibility.Hidden;
         }
 
+        // numeric_up_down Code startet hier  
+        // Für Gewindelänge
+
+        private int _numValue = 0;
+
+        public int NumValue
+        {
+            get { return _numValue; }
+            set
+            {
+                _numValue = value;
+                txtBox_Gewindelänge.Text = value.ToString();
+            }
+        }
+
+       
+
+        private void cmdUp_Click(object sender, RoutedEventArgs e)
+        {
+            NumValue++;
+        }
+
+        private void cmdDown_Click(object sender, RoutedEventArgs e)
+        {
+            NumValue--;
+        }
+
+        private void txtBox_Gewindelänge_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtBox_Gewindelänge == null)
+            {
+                return;
+            }
+
+            if (!int.TryParse(txtBox_Gewindelänge.Text, out _numValue))
+                txtBox_Gewindelänge.Text = _numValue.ToString();
+        }
+        // für Schaftlänge 
+
+        private int _numValue_1 = 0;
+
+        public int NumValue_1
+        {
+            get { return _numValue_1; }
+            set
+            {
+                _numValue_1 = value;
+                txtBox_Schaftlänge.Text = value.ToString();
+            }
+        }
 
 
-        
-        
+
+        private void cmdUp_Click_1(object sender_1, RoutedEventArgs e)
+        {
+            NumValue_1++;
+        }
+
+        private void cmdDown_Click_1(object sender_1, RoutedEventArgs e)
+        {
+            NumValue_1--;
+        }
+
+        private void txtBox_Schaftlänge_TextChanged(object sender_1, TextChangedEventArgs e)
+        {
+            if (txtBox_Schaftlänge == null)
+            {
+                return;
+            }
+
+            if (!int.TryParse(txtBox_Schaftlänge.Text, out _numValue_1))
+                txtBox_Schaftlänge.Text = _numValue_1.ToString();
+        }
+        //numeric_up_down Code endet hier
+
         private void cmbBox_Zylinderkopf_Selected(object sender, RoutedEventArgs e)
         {
             LabelHide();
@@ -320,6 +392,12 @@ namespace Wpf_Steuerprogramm
         private void cmbBox_Senkkopf_Unselected(object sender, RoutedEventArgs e)
         {
             lbl_BildSenkkopf.Visibility = Visibility.Hidden;
+        }
+
+        private void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+
         }
     }
 

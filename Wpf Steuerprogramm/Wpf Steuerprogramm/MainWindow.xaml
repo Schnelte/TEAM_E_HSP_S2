@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900">
+        Title="MainWindow" Height="600" Width="910">
+
     <Grid>
         <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="633,306,0,0" VerticalAlignment="Top" Width="251" Click="Button_Click" Height="43"/>
         <Label Content="Durchmesser" HorizontalAlignment="Left" Margin="804,31,-17,0" VerticalAlignment="Top" Height="24" Width="108"/>
-        <Label Content="Gewindelänge" HorizontalAlignment="Left" Margin="633,189,0,0" VerticalAlignment="Top" Width="87"/>
-        <TextBox x:Name="txtBox_Gewindelänge" HorizontalAlignment="Left" Height="23" Margin="633,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Text="10"/>
+
+
         <ComboBox x:Name="cmbBox_Gewindeart" Width="130" Height="25" Margin="633,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBoxItem x:Name="cmbBox_MX" IsSelected="True" Content="Metrisch-Standard" />
             <ComboBoxItem x:Name="cmbBox_MF" Selected="cmbBox_MF_Selected" Content="Metrisch-Fein" Unselected="cmbBox_MF_Unselected"/>
@@ -56,7 +57,7 @@
 
 
         <Label Content="Schaftlänge" HorizontalAlignment="Left" Margin="736,189,0,0" VerticalAlignment="Top" Width="80"/>
-        <TextBox x:Name="txtBox_Schaftlänge" HorizontalAlignment="Left" Height="23" Margin="736,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Text="10"/>
+
 
         <Label Content="Steigung" HorizontalAlignment="Left" Margin="831,189,0,0" VerticalAlignment="Top" Width="64" RenderTransformOrigin="0.549,0.846"/>
         <TextBox x:Name="txtBox_Steigung" HorizontalAlignment="Left" Height="24" Margin="834,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsEnabled="False"/>
@@ -114,7 +115,31 @@
         <Label x:Name="lbl_BildZylinderkopf" HorizontalAlignment="Left" Height="207" Margin="23,31,0,0" VerticalAlignment="Top" Width="468" Visibility="Hidden">
             <Image Source="/Bilder/Zylinderkopfschraube mit Schaft.jpg" Height="197" Width="458" />
         </Label>
-        <Button Content="Abbrechen" HorizontalAlignment="Left" Margin="634,354,0,0" VerticalAlignment="Top" Width="250" Height="40"/>
+        <Button x:Name="btn_Cancel" Content="Abbrechen" HorizontalAlignment="Left" Margin="634,354,0,0" VerticalAlignment="Top" Width="250" Height="40" Click="btn_Cancel_Click"/>
+        <Label Content="Gewindelänge" HorizontalAlignment="Left" Margin="633,189,0,0" VerticalAlignment="Top" Width="87"/>
+        <Grid  Height="23" Margin="419,215,24.333,0" VerticalAlignment="Top" Width="500">
+            <TextBox x:Name="txtBox_Gewindelänge" x:FieldModifier="private" Text="0" TextChanged="txtBox_Gewindelänge_TextChanged" Margin="3,2,13,3" Width="50"/>
+            <Button x:Name="cmdUp" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▲" Width="10" Click="cmdUp_Click" Margin="33,2,1,13" />
+            <Button x:Name="cmdDown" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▼" Width="10" Click="cmdDown_Click" Margin="33,12,1,3" />
+            <!--
+            <TextBox x:Name="txtBox_Gewindelänge" HorizontalAlignment="Left" Height="23" Margin="633,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Text="10"/>
+            -->
 
+        </Grid>
+        <Grid  Height="23" Margin="401,215,-238.667,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="107*"/>
+                <ColumnDefinition Width="623*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtBox_Schaftlänge" x:FieldModifier="private" Text="0" TextChanged="txtBox_Schaftlänge_TextChanged" Margin="227.667,2,345.333,3" Width="50" Grid.Column="1"/>
+            <Button x:Name="cmdUp_1" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▲" Width="10" Click="cmdUp_Click_1" Margin="268.667,2,344.333,13" Grid.Column="1" />
+            <Button x:Name="cmdDown_1" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▼" Width="10" Click="cmdDown_Click_1" Margin="268.667,12,344.333,3" Grid.Column="1" />
+            <!--     
+            <TextBox x:Name="txtBox_Schaftlänge" HorizontalAlignment="Left" Height="23" Margin="736,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Text="10"/>
+            -->
+        </Grid>
+        <Label x:Name="mm1" Content="mm" HorizontalAlignment="Left" Margin="688,212,0,0" VerticalAlignment="Top" Width="30"/>
+        <Label x:Name="mm2" Content="mm" HorizontalAlignment="Left" Margin="787,212,0,0" VerticalAlignment="Top" Width="30"/>
     </Grid>
 </Window>
