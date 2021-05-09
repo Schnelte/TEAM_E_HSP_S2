@@ -289,12 +289,15 @@ namespace Wpf_Steuerprogramm
         private void cmbBox_WW_Selected(object sender, RoutedEventArgs e)
         {
             cmbBox_Whitworth.Visibility = Visibility.Visible;
+            cmbBox_Kopf.IsEnabled = false;
         }
 
         private void cmbBox_WW_Unselected(object sender, RoutedEventArgs e)
         {
            
             cmbBox_Whitworth.Visibility = Visibility.Hidden;
+            cmbBox_Kopf.IsEnabled = true;
+
         }
 
         // numeric_up_down Code startet hier  
