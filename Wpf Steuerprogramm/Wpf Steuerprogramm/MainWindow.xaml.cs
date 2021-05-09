@@ -316,12 +316,12 @@ namespace Wpf_Steuerprogramm
 
         private void cmdUp_Click(object sender, RoutedEventArgs e)
         {
-            NumValue++;
+            NumValue+=5; // Wert um 5 erhöht
         }
 
         private void cmdDown_Click(object sender, RoutedEventArgs e)
         {
-            NumValue--;
+            NumValue-=5;  // Wert um 5 erhöht
         }
 
         private void txtBox_Gewindelänge_TextChanged(object sender, TextChangedEventArgs e)
@@ -352,12 +352,12 @@ namespace Wpf_Steuerprogramm
 
         private void cmdUp_Click_1(object sender_1, RoutedEventArgs e)
         {
-            NumValue_1++;
+            NumValue_1+=5; // Wert um 5 erhöht
         }
 
         private void cmdDown_Click_1(object sender_1, RoutedEventArgs e)
         {
-            NumValue_1--;
+            NumValue_1-=5; // Wert um 5 erhöht
         }
 
         private void txtBox_Schaftlänge_TextChanged(object sender_1, TextChangedEventArgs e)
