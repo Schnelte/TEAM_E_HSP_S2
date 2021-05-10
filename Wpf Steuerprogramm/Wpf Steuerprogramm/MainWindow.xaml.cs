@@ -332,6 +332,10 @@ namespace Wpf_Steuerprogramm
 
             if (!int.TryParse(txtBox_Gewindelänge.Text, out _numValue))
                 txtBox_Gewindelänge.Text = _numValue.ToString();
+
+            
+           
+
         }
         // für Schaftlänge 
 
@@ -421,6 +425,24 @@ namespace Wpf_Steuerprogramm
             lbl_BildZylinderkopf.Visibility = Visibility.Hidden;
             lbl_BildSenkkopf.Visibility = Visibility.Hidden;
             lbl_BildSechskant.Visibility = Visibility.Visible;
+        }
+
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        {
+            double a = Convert.ToDouble(txtBox_Gewindelänge.Text);
+
+
+            if (a <= 9)
+            {
+                txtBox_Gewindelänge.Background = Brushes.Red;
+
+                MessageBox.Show("Gewindelänge muss mindestens 10 mm\nund eine Zahl sein!", "Warnung", MessageBoxButton.OK, MessageBoxImage.Information);
+                txtBox_Gewindelänge.Text = "10";
+            }
+            if (a>9)
+            {
+                txtBox_Gewindelänge.Background = Brushes.Transparent;
+            }
         }
     }
 
