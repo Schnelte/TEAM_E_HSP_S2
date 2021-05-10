@@ -444,6 +444,24 @@ namespace Wpf_Steuerprogramm
                 txtBox_Gewindelänge.Background = Brushes.Transparent;
             }
         }
+
+        private void Grid_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            double a = Convert.ToDouble(txtBox_Schaftlänge.Text);
+
+
+            if (a < 0)
+            {
+                txtBox_Schaftlänge.Background = Brushes.Red;
+
+                MessageBox.Show("Schaftlänge darf nicht negativ sein", "Warnung", MessageBoxButton.OK, MessageBoxImage.Information);
+                txtBox_Schaftlänge.Text = "0";
+            }
+            if (a >= 0)
+            {
+                txtBox_Schaftlänge.Background = Brushes.Transparent;
+            }
+        }
     }
 
 
