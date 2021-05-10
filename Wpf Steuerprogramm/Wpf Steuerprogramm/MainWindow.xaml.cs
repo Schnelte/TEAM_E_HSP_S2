@@ -90,8 +90,8 @@ namespace Wpf_Steuerprogramm
                       
             // Ausgabe im Label
             lbl_Ausgabe.Content = "Kernlochdurchmesser: " + Bolt.Kernlochdurchmesser + " mm" + "     Schlüsselweite: " + Bolt.Schlüsselweite + " mm" +
-                "    Durchmesser: " + Bolt.Durchmesser + " mm" + "\nKopfhöhe: " + Bolt.Kopfhöhe + " mm" + "   Re: " + Bolt.Streckgrenze + " MPa"
-                + "   Rm: " + Bolt.Zugfestigkeit + " MPa" + "   Gewindeart: " + Bolt.Gewindeart + "   Kopf: " + Bolt.Kopf + "\nSchraubrichtung: " + Bolt.Schraubenrichtung;
+                 " mm" + "\nKopfhöhe: " + Bolt.Kopfhöhe + " mm" + "   Re: " + Bolt.Streckgrenze + " MPa"
+                + "   Rm: " + Bolt.Zugfestigkeit + " MPa" ;
 
             lbl_Masse.Content = "Masse: " + Bolt.Gesamtmasse + " g" + "    Steigung: " + Bolt.Steigung + "   Schraubenkopf: " + Bolt.Schraubenkopfname;
             lbl_Preis.Content = "Preis: " + Bolt.Gesamtpreis + " € " + "     Flankenwinkel: " + Bolt.Flankenwinkel + "° " + "  Maximale Belastung: " + Bolt.MaxBelastung + " kN";
@@ -115,6 +115,7 @@ namespace Wpf_Steuerprogramm
                 lbl_Schraubenbezeichnung.Content = "Schraubenbezwichnung: " + Bolt.SchraubenbezeichnungWW;
                 lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.WhitworthFlankendurchmesser + " mm" + "   Gangzahl: " + Bolt.Gangzahl;
                 lbl_SenkungUndBohrung.Visibility = Visibility.Hidden;
+                lbl_Masse.Visibility = Visibility.Hidden;
 
 
             }
@@ -285,14 +286,12 @@ namespace Wpf_Steuerprogramm
         private void cmbBox_WW_Selected(object sender, RoutedEventArgs e)
         {
             cmbBox_Whitworth.Visibility = Visibility.Visible;
-            cmbBox_Kopf.IsEnabled = false;
         }
 
         private void cmbBox_WW_Unselected(object sender, RoutedEventArgs e)
         {
            
             cmbBox_Whitworth.Visibility = Visibility.Hidden;
-            cmbBox_Kopf.IsEnabled = true;
 
         }
 
