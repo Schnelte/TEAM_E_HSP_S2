@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"        
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="910"  Style="{StaticResource WindowStyle}">
+        Title="MainWindow" MinHeight="560" MinWidth="910" MaxHeight="560" MaxWidth="910" Style="{StaticResource WindowStyle}">
 
     <Window.Resources>
 
@@ -97,10 +97,10 @@
     <Grid>
         <CheckBox x:Name="chk1" IsChecked="True" 
                   Unchecked="chk1_Unchecked" 
-                  HorizontalAlignment="Right"
+                  HorizontalAlignment="Left"
                   VerticalAlignment="Top" 
                   Checked="chk1_Checked" 
-                  Margin="0,424,45.333,0"
+                  Margin="801,10,0,0"
                                     >
         </CheckBox>
 
@@ -225,16 +225,16 @@
 
         <!--Bilderbereich-->
         <Border Margin="30,50,0,0"     HorizontalAlignment="Left"  VerticalAlignment="Top" Width="503" Height="230">
-            <Grid Background="White" Margin="0,0,-0.333,10">
-                <Label x:Name="lbl_BildSechskant" VerticalAlignment="Top" Margin="0,20">
-                    <Image Source="/Bilder/Sechskantschraube mit Schaft.jpg" Width="488"/>
+            <Grid Background="White">
+                <Label x:Name="lbl_BildSechskant" VerticalAlignment="Top" Margin="0,25">
+                    <Image Source="/Bilder/Sechskantschraube mit Schaft.jpg" Width="493" Height="193"/>
                 </Label>
 
-                <Label x:Name="lbl_BildSenkkopf"    Visibility="Hidden"     VerticalAlignment="Top" Margin="0,20">
+                <Label x:Name="lbl_BildSenkkopf"    Visibility="Hidden"     VerticalAlignment="Top" Margin="0,25">
                     <Image Source="/Bilder/Senkkopfschraube mit schaft.jpg" Height="188" Width="491" />
                 </Label>
 
-                <Label x:Name="lbl_BildZylinderkopf" VerticalAlignment="Top" Visibility="Hidden" Margin="0,25">
+                <Label x:Name="lbl_BildZylinderkopf" VerticalAlignment="Top" Visibility="Hidden" Margin="0,30">
                     <Image Source="/Bilder/Zylinderkopfschraube mit Schaft.jpg"/>
                 </Label>
             </Grid>
@@ -252,7 +252,6 @@
 
         <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="580,311,0,0" VerticalAlignment="Top" Width="276" Click="Button_Click" Height="43"/>
         <Label Content="Ausgaben:" HorizontalAlignment="Left" Height="38" Margin="30,280,0,0" VerticalAlignment="Top" Width="228" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Night Mode" HorizontalAlignment="Left" Margin="656,424,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
