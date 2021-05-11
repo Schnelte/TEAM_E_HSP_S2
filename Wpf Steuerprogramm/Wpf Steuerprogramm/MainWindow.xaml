@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"        
         mc:Ignorable="d"
-        Title="Schrauben individuell gestalten:" MinHeight="650" MinWidth="910" MaxHeight="650" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg">
+        Title="Schrauben individuell gestalten:" MinHeight="650" MinWidth="910" MaxHeight="650" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg" SizeToContent="WidthAndHeight">
 
 
     <Window.Resources>
@@ -34,7 +34,7 @@
                             </ContentPresenter>
                         </StackPanel>
                         <ControlTemplate.Resources>
-                            <Storyboard x:Key="right">
+                            <Storyboard x:Key="left">
                                 <ThicknessAnimation Storyboard.TargetProperty="Margin"
                                                     Storyboard.TargetName="button"
                                                     Duration="0:0:01"
@@ -47,7 +47,7 @@
                                     </ThicknessAnimation.EasingFunction>
                                 </ThicknessAnimation>
                             </Storyboard>
-                            <Storyboard x:Key="left">
+                            <Storyboard x:Key="right">
                                 <ThicknessAnimation Storyboard.TargetProperty="Margin"
                                                     Storyboard.TargetName="button"
                                                     Duration="0:0:01"
@@ -225,8 +225,8 @@
                     <ComboBoxItem>2''</ComboBoxItem>
                 </ComboBox>
 
-                <RadioButton Margin="168,213,-148,0" Height="20" Width="Auto" x:Name="rb_Linksgewinde" Content="Linksgewinde" GroupName="Gewinderichtung" VerticalAlignment="Top"/>
-                <RadioButton Margin="10,213,100,0" Height="20" Width="Auto" x:Name="rb_Rechtsgewinde" Content="Rechtsgewinde" IsChecked="True" GroupName="Gewinderichtung" VerticalAlignment="Top" />
+                <RadioButton Margin="168,213,0,0" Height="20" Width="Auto" x:Name="rb_Linksgewinde" Content="Linksgewinde" GroupName="Gewinderichtung" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <RadioButton Margin="10,213,0,0" Height="20" Width="Auto" x:Name="rb_Rechtsgewinde" Content="Rechtsgewinde" IsChecked="True" GroupName="Gewinderichtung" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
             </Grid>
         </Border>
