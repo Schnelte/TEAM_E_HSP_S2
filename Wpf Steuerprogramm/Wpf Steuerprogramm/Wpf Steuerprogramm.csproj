@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_Btu_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -101,6 +104,9 @@
     <Resource Include="Bilder\Sechskantschraube mit Schaft.jpg" />
     <Resource Include="Bilder\Senkkopfschraube mit schaft.jpg" />
     <Resource Include="Bilder\Zylinderkopfschraube mit Schaft.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo_Btu_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
