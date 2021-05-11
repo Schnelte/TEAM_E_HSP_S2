@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"        
         mc:Ignorable="d"
-        Title="Schrauben individuell gestalten:" MinHeight="650" MinWidth="910" MaxHeight="650" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg" SizeToContent="WidthAndHeight">
+        Title="Schrauben individuell gestalten:" MinHeight="700" MinWidth="910" MaxHeight="700" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg" SizeToContent="WidthAndHeight">
 
 
     <Window.Resources>
@@ -111,18 +111,37 @@
         </CheckBox>
 
         <!--Ausgabebereich-->
-        <Border Margin="30,310,0,-60.5" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="503" Grid.RowSpan="2" Height="258">
-            <StackPanel x:Name="sp_gesamteAusgabe" HorizontalAlignment="Left" Width="498" VerticalAlignment="Top" Height="Auto" Margin="5,0,0,0">
-                <Label x:Name="Beschreibung1" Content="Geometrische Eigenschaften :" Height="26" FontWeight="Bold"/>
-                <Label x:Name="lbl_geoInfo" Content="" Height="48"/>
-                <Label x:Name="Beschreibung3" Content="Mechanische Eigenschaften :" Height="26" FontWeight="Bold"/>
-                <Label x:Name="lbl_mechanischeEigenschaften" Content="" Height="26"/>
-                <Label x:Name="Beschreibung4" Content="Bohrungen und Senkungen :" Height="27" FontWeight="Bold"/>
-                <Label x:Name="lbl_SenkungUndBohrung" Content="" Height="42"/>
-                <Label x:Name="lbl_Beschreibung2" Content="Masse :" Height="24" FontWeight="Bold"/>
-                <Label x:Name="lbl_Masse" Content="" Height="26"/>
+        <Border Margin="30,329,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="503" Grid.RowSpan="2" Height="300">
+            <Grid x:Name="grid_gesamteAusgabe" HorizontalAlignment="Left" Width="498" VerticalAlignment="Top" Height="Auto" Margin="5,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            </StackPanel>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="65"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="Beschreibung1"                           Content="Geometrische Eigenschaften :"     Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                <Label x:Name="lbl_geoInfo_links"                       Content=""                                 Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="lbl_geoInfo_rechts"                      Content=""                                 Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="Beschreibung3"                           Content="Mechanische Eigenschaften :"      Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                <Label x:Name="lbl_mechanischeEigenschaften_links"      Content=""                                 Grid.Column="0" Grid.Row="3"/>
+                <Label x:Name="lbl_mechanischeEigenschaften_rechts"     Content=""                                 Grid.Column="1" Grid.Row="3"/>
+                <Label x:Name="Beschreibung4"                           Content="Bohrungen und Senkungen :"        Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                <Label x:Name="lbl_SenkungUndBohrung_links"             Content=""                                 Grid.Column="0" Grid.Row="5"/>
+                <Label x:Name="lbl_SenkungUndBohrung_rechts"            Content=""                                 Grid.Column="1" Grid.Row="5"/>
+                <Label x:Name="lbl_Beschreibung2"                       Content="Masse :"                          Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                <Label x:Name="lbl_Masse"                               Content=""                                 Grid.Column="0" Grid.Row="7"/>
+
+            </Grid>
         </Border>
 
         <!--Eingabebereich-->
@@ -259,7 +278,7 @@
 
 
         <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="594,300,-78,0" VerticalAlignment="Top" Width="247" Click="Button_Click" Height="34"/>
-        <Label x:Name="lbl_Ausgaben" Content="Ausgaben:" HorizontalAlignment="Left" Height="38" Margin="30,280,0,0" VerticalAlignment="Top" Width="527" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="lbl_Ausgaben" Content="Ausgaben:" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" Width="527" FontWeight="Bold" FontSize="14"/>
         <Border HorizontalAlignment="Left" Height="58" Margin="580,36.5,-93,0" Grid.Row="1" VerticalAlignment="Top" Width="276">
             <Label x:Name="lbl_Preis" FontSize="24" FontWeight="Bold" Margin="60,8,0,9"/>
         </Border>
