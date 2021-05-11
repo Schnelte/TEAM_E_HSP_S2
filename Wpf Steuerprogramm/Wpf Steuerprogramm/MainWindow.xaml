@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"        
         mc:Ignorable="d"
-        Title="Schrauben individuell gestalten:" MinHeight="560" MinWidth="910" MaxHeight="560" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg">
+        Title="Schrauben individuell gestalten:" MinHeight="650" MinWidth="910" MaxHeight="650" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg">
 
     <Window.Resources>
 
@@ -95,31 +95,37 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
         <CheckBox x:Name="chk1" IsChecked="True" 
                   Unchecked="chk1_Unchecked" 
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top" 
                   Checked="chk1_Checked" 
-                  Margin="801,10,0,0"
+                  Margin="801,10,-38,0"
                                     >
         </CheckBox>
 
         <!--Ausgabebereich-->
-        <Border Margin="30,310,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="503">
-            <StackPanel x:Name="sp_gesamteAusgabe" HorizontalAlignment="Left" Width="474" VerticalAlignment="Top" Height="Auto" Margin="5,0,1,5">
-                <Label x:Name="lbl_Ausgabe" Content="Berechnungen" Height="62"/>
-                <Label x:Name="lbl_Schraubenbezeichnung">Schraubenbezeichnug</Label>
-                <Label x:Name="lbl_Masse"/>
-                <Label x:Name="lbl_Preis" >Preis:</Label>
-                <Label x:Name="lbl_Flankendurchmesser">Flankendurchmesser:</Label>
-                <Label x:Name="lbl_SenkungUndBohrung" Content="Senkungen und Bohrungen:"/>
+        <Border Margin="30,310,0,-60.5" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="503" Grid.RowSpan="2" Height="258">
+            <StackPanel x:Name="sp_gesamteAusgabe" HorizontalAlignment="Left" Width="498" VerticalAlignment="Top" Height="Auto" Margin="5,0,0,0">
+                <Label x:Name="Beschreibung1" Content="Geometrische Eigenschaften :" Height="26" FontWeight="Bold"/>
+                <Label x:Name="lbl_geoInfo" Content="" Height="48"/>
+                <Label x:Name="Beschreibung3" Content="Mechanische Eigenschaften :" Height="26" FontWeight="Bold"/>
+                <Label x:Name="lbl_mechanischeEigenschaften" Content="" Height="26"/>
+                <Label x:Name="Beschreibung4" Content="Bohrungen und Senkungen :" Height="27" FontWeight="Bold"/>
+                <Label x:Name="lbl_SenkungUndBohrung" Content="" Height="42"/>
+                <Label x:Name="lbl_Beschreibung2" Content="Masse :" Height="24" FontWeight="Bold"/>
+                <Label x:Name="lbl_Masse" Content="" Height="26"/>
 
             </StackPanel>
         </Border>
 
         <!--Eingabebereich-->
-        <Border Margin="580,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="278" Height="230">
-            <Grid >
+        <Border Margin="580,50,-95,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="278" Height="299" Grid.RowSpan="2">
+            <Grid Margin="0,0,0,-72" >
 
                 <Label Content="Gewindeart"     HorizontalAlignment="Left"      VerticalAlignment="Top" Width="100"     Margin="10,10"/>
                 <Label Content="Durchmesser"    HorizontalAlignment="Right"     VerticalAlignment="Top" Width="100"     Margin="10,10"/>
@@ -217,8 +223,8 @@
                     <ComboBoxItem>2''</ComboBoxItem>
                 </ComboBox>
 
-                <RadioButton Margin="168,205,-148,0" Height="20" Width="Auto" x:Name="rb_Linksgewinde" Content="Linksgewinde" GroupName="Gewinderichtung" VerticalAlignment="Top"/>
-                <RadioButton Margin="10,205,100,0" Height="20" Width="Auto" x:Name="rb_Rechtsgewinde" Content="Rechtsgewinde" IsChecked="True" GroupName="Gewinderichtung" VerticalAlignment="Top" />
+                <RadioButton Margin="168,213,-148,0" Height="20" Width="Auto" x:Name="rb_Linksgewinde" Content="Linksgewinde" GroupName="Gewinderichtung" VerticalAlignment="Top"/>
+                <RadioButton Margin="10,213,100,0" Height="20" Width="Auto" x:Name="rb_Rechtsgewinde" Content="Rechtsgewinde" IsChecked="True" GroupName="Gewinderichtung" VerticalAlignment="Top" />
 
             </Grid>
         </Border>
@@ -245,13 +251,18 @@
         <Label Content="Eingaben:" HorizontalAlignment="Left"  Margin="580,20,0,0" VerticalAlignment="Top" Width="152" FontWeight="Bold" FontSize="16"/>
         <Label Content="Schraubendarstellung:" HorizontalAlignment="Left"  Margin="23,20,0,0" VerticalAlignment="Top" Width="180" FontWeight="Bold" FontSize="16"/>
 
-        <Button x:Name="btn_Cancel" Content="Abbrechen" HorizontalAlignment="Left" Margin="580,362,0,0" VerticalAlignment="Top" Width="276" Height="40" Click="btn_Cancel_Click"/>
+        <Button x:Name="btn_Cancel" Content="Abbrechen" HorizontalAlignment="Left" Margin="580,117.5,0,0" VerticalAlignment="Top" Width="130" Height="31" Click="btn_Cancel_Click" Grid.Row="1"/>
 
 
 
 
-        <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="580,311,0,0" VerticalAlignment="Top" Width="276" Click="Button_Click" Height="43"/>
-        <Label Content="Ausgaben:" HorizontalAlignment="Left" Height="38" Margin="30,280,0,0" VerticalAlignment="Top" Width="228" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="594,300,-78,0" VerticalAlignment="Top" Width="247" Click="Button_Click" Height="34"/>
+        <Label x:Name="lbl_Ausgaben" Content="Ausgaben:" HorizontalAlignment="Left" Height="38" Margin="30,280,0,0" VerticalAlignment="Top" Width="527" FontWeight="Bold" FontSize="14"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="58" Margin="580,36.5,-93,0" Grid.Row="1" VerticalAlignment="Top" Width="276">
+            <Label x:Name="lbl_Preis" FontSize="24" FontWeight="Bold" Margin="60,8,0,9"/>
+        </Border>
+        <Label Content="Kosten der erstellten Schraube:" HorizontalAlignment="Left" Height="31" Margin="580,0.5,-85,0" Grid.Row="1" VerticalAlignment="Top" Width="268" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="btn_CAD" Content="Modell konstruieren" HorizontalAlignment="Left" Height="31" Margin="726,117.5,-93,0" Grid.Row="1" VerticalAlignment="Top" Width="130"/>
 
     </Grid>
 </Window>

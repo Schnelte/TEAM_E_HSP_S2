@@ -26,7 +26,7 @@ namespace Wpf_Steuerprogramm
             txtBox_Gewindelänge.Text = _numValue.ToString();
         }
 
-
+        #region Berechnen Button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             double dichte = 0.00785;
@@ -87,58 +87,98 @@ namespace Wpf_Steuerprogramm
             Bolt.SchraubenbezeichnungWW = Konsolenprogramm.SchraubenbezeichnungWW((string)Bolt.DurchmesserWW_Zoll, Bolt.Gesamtlänge, Bolt.Festigkeitsklasse, Bolt.Schraubenrichtung);
 
 
-                      
-            // Ausgabe im Label
-            lbl_Ausgabe.Content = "Kernlochdurchmesser: " + Bolt.Kernlochdurchmesser + " mm" + "     Schlüsselweite: " + Bolt.Schlüsselweite + " mm" +
-                 " mm" + "\nKopfhöhe: " + Bolt.Kopfhöhe + " mm" + "   Re: " + Bolt.Streckgrenze + " MPa"
-                + "   Rm: " + Bolt.Zugfestigkeit + " MPa" ;
-
-            lbl_Masse.Content = "Masse: " + Bolt.Gesamtmasse + " g" + "    Steigung: " + Bolt.Steigung + "   Schraubenkopf: " + Bolt.Schraubenkopfname;
-            lbl_Preis.Content = "Preis: " + Bolt.Gesamtpreis + " € " + "     Flankenwinkel: " + Bolt.Flankenwinkel + "° " + "  Maximale Belastung: " + Bolt.MaxBelastung + " kN";
+            //Ausgabe Norm
+            string Norm = "";
             if (Bolt.Gewindeart == 1)
             {
-
-                lbl_Schraubenbezeichnung.Visibility = Visibility.Visible;
-                lbl_Schraubenbezeichnung.Content = "Schraubenbezeichnung: " + Bolt.SchraubenbezeichnungMX;
-                lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.Flankendurchmesser + " mm" + "  Durchmesser der Durchgangsbohrung: " + Bolt.Durchgangsbohrung + " mm";
-
+                Norm = Bolt.SchraubenbezeichnungMX;
             }
             if (Bolt.Gewindeart == 2)
-            {
-
-                lbl_Schraubenbezeichnung.Visibility = Visibility.Visible;
-                lbl_Schraubenbezeichnung.Content = "Schraubenbezeichnung: " + Bolt.SchraubenbezeichnungMF;
-                lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.Flankendurchmesser + " mm" + "  Durchmesser der Durchgangsbohrung: " + Bolt.Durchgangsbohrung + " mm";
+            {                          
+               Norm =  Bolt.SchraubenbezeichnungMF;
             }
             if (Bolt.Gewindeart == 3)
             {
-                lbl_Schraubenbezeichnung.Content = "Schraubenbezwichnung: " + Bolt.SchraubenbezeichnungWW;
-                lbl_Flankendurchmesser.Content = "Flankendurchmesser: " + Bolt.WhitworthFlankendurchmesser + " mm" + "   Gangzahl: " + Bolt.Gangzahl;
-                lbl_SenkungUndBohrung.Visibility = Visibility.Hidden;
-                lbl_Masse.Visibility = Visibility.Hidden;
-
-
+                Norm = Bolt.SchraubenbezeichnungWW;
             }
 
-            if (Bolt.Kopf == 1) //Sechskant
+            lbl_Ausgaben.Content = "Ausgaben für " + Norm;
+
+
+            // Ausgaben abhängig von der Gewindeart
+            string Flankendurchmesser = "";
+            string Durchgangsbohrung = "";
+            string Gangzahl = "";
+            string Schlüsselweite = "";
+            string Kopfhöhe = "";
+
+            if (Bolt.Gewindeart == 1)
             {
-                lbl_SenkungUndBohrung.Visibility = Visibility.Hidden;
-
+                Flankendurchmesser = "Flankendurchmesser: " + Bolt.Flankendurchmesser + " mm";
+                Durchgangsbohrung = "                         Durchgangsbohrung: " + Bolt.Durchgangsbohrung + " mm";
+                Schlüsselweite = "Schlüsselweite: " + Bolt.Schlüsselweite + "mm";
+                Kopfhöhe = "                                   Kopfhöhe: " + Bolt.Kopfhöhe + "mm";
+                lbl_Masse.Visibility = Visibility.Visible;
+                lbl_Beschreibung2.Visibility = Visibility.Visible;
             }
+            if (Bolt.Gewindeart == 2)
+            {
+                Flankendurchmesser = "Flankendurchmesser: " + Bolt.Flankendurchmesser + " mm";
+                Durchgangsbohrung =  "                        Durchgangsbohrung: " + Bolt.Durchgangsbohrung + " mm";
+                Schlüsselweite = "Schlüsselweite: " + Bolt.Schlüsselweite + "mm";
+                Kopfhöhe = "                                   Kopfhöhe: " + Bolt.Kopfhöhe + "mm";
+                lbl_Masse.Visibility = Visibility.Visible;
+                lbl_Beschreibung2.Visibility = Visibility.Visible;
+            }
+            if (Bolt.Gewindeart == 3)
+            {
+                Flankendurchmesser = "Flankendurchmesser: " + Bolt.WhitworthFlankendurchmesser + " mm";
+                Gangzahl = "Gangzahl: " + Bolt.Gangzahl ;
+                lbl_Masse.Visibility = Visibility.Hidden;
+                lbl_Beschreibung2.Visibility = Visibility.Hidden;
+            }
+
+
+            //Ausgaben abhänging vom Kopf
+            string Kopfdurchmesser = "";
+            string Senkdurchmesser = "";
+            string Senktiefe = "";
+
             if (Bolt.Kopf == 2) //Zylinder
             {
-                lbl_SenkungUndBohrung.Visibility = Visibility.Visible;
-                lbl_SenkungUndBohrung.Content = "Kopfdurchmesser: " + Bolt.Kopfdurchmesser + " mm" + "   Senkdurchmesser: " + Bolt.Senkdurchmesser + " mm" + "   Senktiefe: " + Bolt.Senktiefe + " mm";
+                Kopfdurchmesser = "         Kopfdurchmesser: " + Bolt.Kopfdurchmesser + " mm";
+                Senkdurchmesser = "Senkdurchmesser: " + Bolt.Senkdurchmesser + " mm";
+                Senktiefe = "                              Senktiefe: " + Bolt.Senktiefe + " mm";
             }
             if (Bolt.Kopf == 3) //Senkkopf
             {
-                lbl_SenkungUndBohrung.Visibility = Visibility.Visible;
-                lbl_SenkungUndBohrung.Content = "Kopfdurchmesser: " + Bolt.Kopfdurchmesser + " mm" + "   Senkdurchmesser: " + Bolt.DurchmesserKegelsenkung + " mm";
+                Kopfdurchmesser = "         Kopfdurchmesser: " + Bolt.Kopfdurchmesser + " mm";
+                Senkdurchmesser = "Senkdurchmesser: " + Bolt.DurchmesserKegelsenkung + " mm";
             }
+
+
+
+            // Ausgabe im Label geometrische Informationen
+            lbl_geoInfo.Content =  Schlüsselweite + Kopfhöhe + Kopfdurchmesser + Gangzahl + "\n" + Flankendurchmesser + "                     Flankenwinkel: " + Bolt.Flankenwinkel + "° ";
+
+            // Ausgabe im Label Masse
+            lbl_Masse.Content = Bolt.Gesamtmasse + " g" ;
+
+            // Ausgabe im Label mechanische Eigenschaften
+            lbl_mechanischeEigenschaften.Content = "Re: " + Bolt.Streckgrenze + " MPa"+ "               Rm: " + Bolt.Zugfestigkeit + " MPa" + "             Maximale Belastung: " + Bolt.MaxBelastung + " kN";
+
+            // Ausgabe im Label Senkungen und Bohrungen
+            lbl_SenkungUndBohrung.Content = "Kernlochdurchmesser: " + Bolt.Kernlochdurchmesser + " mm" + Durchgangsbohrung
+                + "\n"  + Senkdurchmesser + Senktiefe;
+
+            //Ausgabe im Label Preis
+            lbl_Preis.Content = "Preis: " + Bolt.Gesamtpreis + " € ";
 
         }
 
+        #endregion Berechnen Button
 
+        #region Eingabemethoden
         //Eingabemethoden
 
         public string Gewinderichtung()
@@ -268,11 +308,11 @@ namespace Wpf_Steuerprogramm
             }
             return (Durchmesser, Durchmesser_WW_Zoll);
         }
+        #endregion Eingabemethoden
 
-        
 
-   
 
+        #region Steuerbefehle WPF
         private void cmbBox_MF_Selected(object sender, RoutedEventArgs e)
         {
             txtBox_Steigung.IsEnabled = true;
@@ -461,6 +501,8 @@ namespace Wpf_Steuerprogramm
                 txtBox_Schaftlänge.Background = Brushes.Transparent;
             }
         }
+
+        #endregion Steuerbefehle WPF
     }
 
 
