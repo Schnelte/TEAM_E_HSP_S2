@@ -298,9 +298,9 @@ namespace Wpf_Steuerprogramm
         // numeric_up_down Code startet hier  
         // Für Gewindelänge
 
-        private int _numValue = 0;
+        private double _numValue;
 
-        public int NumValue
+        public double NumValue
         {
             get { return _numValue; }
             set
@@ -329,18 +329,16 @@ namespace Wpf_Steuerprogramm
                 return;
             }
 
-            if (!int.TryParse(txtBox_Gewindelänge.Text, out _numValue))
+            if (!double.TryParse(txtBox_Gewindelänge.Text, out _numValue))
                 txtBox_Gewindelänge.Text = _numValue.ToString();
-
-            
-           
-
         }
+
+
         // für Schaftlänge 
 
-        private int _numValue_1 = 0;
+        private double _numValue_1;
 
-        public int NumValue_1
+        public double NumValue_1
         {
             get { return _numValue_1; }
             set
@@ -369,14 +367,36 @@ namespace Wpf_Steuerprogramm
                 return;
             }
 
-            if (!int.TryParse(txtBox_Schaftlänge.Text, out _numValue_1))
+            if (!double.TryParse(txtBox_Schaftlänge.Text, out _numValue_1))
                 txtBox_Schaftlänge.Text = _numValue_1.ToString();
         }
         //numeric_up_down Code endet hier
 
-       
 
+
+        private double _numValue_Steigung;
+
+        public double NumValue_Steigung
+        {
+            get { return _numValue; }
+            set
+            {
+                _numValue_Steigung = value;
+                txtBox_Steigung.Text = value.ToString();
+            }
+        }
+        private void txtBox_Steigung_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtBox_Steigung == null)
+            {
+                return;
+            }
+
+            if (!double.TryParse(txtBox_Steigung.Text, out _numValue_Steigung))
+                txtBox_Steigung.Text = _numValue_Steigung.ToString();
+        }
         
+
 
         private void cmbBox_Zylinderkopf_Selected(object sender, RoutedEventArgs e)
         {
@@ -459,6 +479,23 @@ namespace Wpf_Steuerprogramm
             if (a >= 0)
             {
                 txtBox_Schaftlänge.Background = Brushes.Transparent;
+            }
+        }
+
+        private void txtBox_Steigung_MouseMove(object sender, MouseEventArgs e)
+        {
+            double a = Convert.ToDouble(txtBox_Steigung.Text);
+
+            if (a <= 0)
+            {
+                txtBox_Steigung.Background = Brushes.Red;
+
+                MessageBox.Show("Steigung muss größer als 0 sein!", "Warnung", MessageBoxButton.OK, MessageBoxImage.Information);
+                txtBox_Steigung.Text = "1";
+            }
+            if (a > 0)
+            {
+                txtBox_Steigung.Background = Brushes.Transparent;
             }
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"        
         mc:Ignorable="d"
-        Title="Schrauben individuell gestalten:" MinHeight="560" MinWidth="910" MaxHeight="560" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg">
+        Title="Schrauben individuell gestalten:" MinHeight="560" MinWidth="910" MaxHeight="560" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg" SizeToContent="WidthAndHeight">
 
     <Window.Resources>
 
@@ -28,7 +28,8 @@
                             </Grid>
                             <ContentPresenter x:Name="content" Margin="10,0,0,0"
                                               Content="{TemplateBinding Content}"
-                                              VerticalAlignment="Center">
+                                              VerticalAlignment="Center"
+                                              >
                             </ContentPresenter>
                         </StackPanel>
                         <ControlTemplate.Resources>
@@ -131,7 +132,7 @@
 
 
 
-                <TextBox x:Name="txtBox_Steigung" Text="1" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsEnabled="False" Margin="0,170,10,0" Height="25" TextAlignment="Right"/>
+                <TextBox x:Name="txtBox_Steigung" Text="1" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsEnabled="False" Margin="0,170,10,0" Height="25" TextAlignment="Right" TextChanged="txtBox_Steigung_TextChanged" MouseMove="txtBox_Steigung_MouseMove"/>
 
 
 
