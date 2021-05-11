@@ -260,7 +260,7 @@
 
         <Button x:Name="btn_Akzeptieren" Content="Berechnen" HorizontalAlignment="Left" Margin="594,300,-78,0" VerticalAlignment="Top" Width="247" Click="Button_Click" Height="34"/>
         <Label x:Name="lbl_Ausgaben" Content="Ausgaben:" HorizontalAlignment="Left" Height="38" Margin="30,280,0,0" VerticalAlignment="Top" Width="527" FontWeight="Bold" FontSize="14"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="58" Margin="580,36.5,-93,0" Grid.Row="1" VerticalAlignment="Top" Width="276">
+        <Border HorizontalAlignment="Left" Height="58" Margin="580,36.5,-93,0" Grid.Row="1" VerticalAlignment="Top" Width="276">
             <Label x:Name="lbl_Preis" FontSize="24" FontWeight="Bold" Margin="60,8,0,9"/>
         </Border>
         <Label Content="Kosten der erstellten Schraube:" HorizontalAlignment="Left" Height="31" Margin="580,0.5,-85,0" Grid.Row="1" VerticalAlignment="Top" Width="268" FontSize="16" FontWeight="Bold"/>
