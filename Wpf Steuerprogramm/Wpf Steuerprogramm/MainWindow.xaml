@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Steuerprogramm"        
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="560" MinWidth="910" MaxHeight="560" MaxWidth="910" Style="{StaticResource WindowStyle}">
+        Title="Schrauben individuell gestalten:" MinHeight="560" MinWidth="910" MaxHeight="560" MaxWidth="910" Style="{StaticResource WindowStyle}" Icon="Bilder/LOGO.jpg">
 
     <Window.Resources>
 
